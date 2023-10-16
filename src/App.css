@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'PT Root UI';
+  src: url('assets/fonts/PT-Root-UI_Bold.ttf') format('truetype'),
+       url('assets/fonts/PT-Root-UI_Light.ttf') format('truetype'),  
+       url('assets/fonts/PT-Root-UI_Medium.ttf') format('truetype'),  
+       url('assets/fonts/PT-Root-UI_Regular.ttf') format('truetype'),  
+       url('assets/fonts/PT-Root-UI_VF.ttf') format('truetype'),  
+} 
+
+div, span, h1, h2, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: PT Root UI ;
+}
+
+

@@ -1,0 +1,16 @@
+.main-page {
+    display: flex;
+    justify-content: center;
+    max-height: 540px;
+    &-header {
+        background: #B6E5FF;
+    }
+    &__stop-name{
+        &-ru {
+            font-size: 40px;
+        }
+        &-eng {
+            font-size: 28px;
+        }
+    }
+}
