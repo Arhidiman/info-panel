@@ -1,22 +1,21 @@
 interface IRouteItem {
     className?: string,
     inMove: boolean,
+    isLast: boolean,
     nameRus: string,
     nameEng: string,
     timeLeft: number,
 }
 
-function RouteItem({className, inMove, nameRus, nameEng, timeLeft}: IRouteItem) {
-
+function RouteItem({className, inMove, isLast, nameRus, nameEng, timeLeft}: IRouteItem) {
     return (
     <div className={`route-item ${inMove ? 'in-move' : ""}`}>
         <span className="route-item__time-left">{timeLeft}</span>
         <div className="route-item__route-line">
             <span className="route-item__route-line_top"></span>
             <div className="route-item__route-line_circle"></div>
-            <span className={`route-item__route-line_bottom ${className && className}`}></span>
+            <span className={`route-item__route-line_bottom ${className && className} ${isLast ? "last-stop" : ""}`}></span>
         </div>
-        
         <div className="route-item__stop-name">
             <p className="route-item__stop_ru">{nameRus}</p>
             <p className="route-item__stop_eng">{nameEng}</p>

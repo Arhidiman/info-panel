@@ -3,6 +3,7 @@
     justify-content: center;
     max-height: 540px;
     &-header {
+        padding: 15px 32px;
         background: #B6E5FF;
     }
     &__stop-name{
@@ -14,7 +15,7 @@
         }
     }
     &-left {
-        width: 100%
+        width: 960px
     }
     &-right {
         width: 960px;

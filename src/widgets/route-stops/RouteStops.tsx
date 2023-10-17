@@ -8,7 +8,8 @@ import { route } from "src/app/mock-data/route"
 function RouteStops() {
 
     const stops = route.stops
-    const inMove = false
+    const currentStop = 2
+    const inMove = true
     let count = 0
 
     const [displayedStops, setDisplayedStops] = useState(4)
@@ -22,12 +23,12 @@ function RouteStops() {
         <div className="route-stops">
             {
                 stops.map((stop, i)=> {
-                console.log(i, count)
-                    if(count < displayedStops) {
+                    if(count < displayedStops && i >= currentStop) {
                         count +=1
                         return <RouteItem 
-                            className={i === displayedStops - 1 ? 'line-fade' : ""}
+                            className={count === displayedStops ? 'line-fade' : ""}
                             inMove={inMove}
+                            isLast={i === stops.length - 1}
                             nameRus={stop.nameRus} 
                             nameEng={stop.nameEng} 
                             timeLeft={3+i*5}

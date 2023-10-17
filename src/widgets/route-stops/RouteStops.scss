@@ -30,6 +30,9 @@
                 border-image-source: linear-gradient(#D9D9D9, transparent);
                 border-image-slice: 1;
             }
+            &.last-stop {
+                border: none
+            }
         }
     }
     &__time-left {
