@@ -7,7 +7,7 @@
        url('assets/fonts/PT-Root-UI_VF.ttf') format('truetype'),  
 } 
 
-div, span, h1, h2, ul, li {
+html, body, div, span, h1, h2, ul, li {
   margin: 0;
   padding: 0;
 }
