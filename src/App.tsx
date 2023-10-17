@@ -2,8 +2,6 @@ import MainPage from './pages/main-page/MainPage'
 import './App.css'
 
 function App() {
- 
-
   return (
     <MainPage/>
   )
