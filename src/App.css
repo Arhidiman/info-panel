@@ -16,4 +16,12 @@ body {
   font-family: PT Root UI ;
 }
 
+:root {
+  --scrollbarBgColor: #ffffff;
+  --scrollbarThumbColor: #969696;
+  --scrollbarWidth: 12px;
+  --scrollbarBorder: 0 solid var(--scrollbarBgColor);
+  --scrollbarBorderRadius: 30px;
+}
+
 

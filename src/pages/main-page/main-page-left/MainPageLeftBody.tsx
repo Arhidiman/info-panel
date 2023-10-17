@@ -4,9 +4,9 @@ import TransfersInfo from "src/widgets/transfers-info/TransfersInfo"
 function MainPageLeftBody() {
 
     return (
-    <div className="transfers-wrapper">
-        <CurrentRouteContent/>
-        {/* <TransfersInfo/> */}
+    <div className="main-page-left">
+        {/* <CurrentRouteContent/> */}
+        <TransfersInfo/>
     </div>
   )
 }
