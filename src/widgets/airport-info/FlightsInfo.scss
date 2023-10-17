@@ -1,0 +1,91 @@
+.air-port-info {
+    &-header {
+        display: flex;
+        align-items: center;
+    }
+    &__icon {
+        width: 50px;
+        height: 50px;
+        margin: 0px 8px 0px 15px;
+    }
+    &__flight-direction {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0em;
+        color: #334743
+    }
+    &__table {
+        width: 100%;
+        &-cell {
+            color: #334743;
+            &-selected {
+                display: inline-block;
+                width: 104px;
+                padding: 6px 0;
+                text-align: center;
+                background: #B6E5FF;
+            }
+            &.time, &.flight, &.airplane {
+                text-align: center;
+                font-size: 26px;
+                font-weight: 700;
+                line-height: 26px;
+                letter-spacing: 0em;
+            }
+            &.time, &.direction, &.company, &.airplane, &.status {
+                color: #001914
+            }
+            &.flight {
+                color: #000000;
+            }
+            &.direction {
+                text-align: left;
+                font-family: PT Root UI;
+                font-size: 30px;
+                font-weight: 500;
+                line-height: 30px;
+                letter-spacing: 0em;
+            }
+            &.company {
+                text-align: left;
+                font-size: 26px;
+                font-weight: 500;
+                line-height: 26px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+            &.status {
+                width: 160px;
+                font-size: 22px;
+                font-weight: 500;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+        }
+    }
+    &__table-top {
+        border-bottom: solid #334743 2px;
+        &-cell {
+            padding-bottom: 16px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0em;
+            color: #334743;
+            &.direction, &.company, &.status {
+                text-align: left;
+            }
+            &.airplane {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.table-row {
+    height: 64px;
+    border-bottom: solid #D9D9D9 1px;
+}
