@@ -5,8 +5,8 @@ function MainPageLeftBody() {
 
     return (
     <div className="main-page-left">
-        <CurrentRouteContent/>
-        {/* <TransfersInfo/> */}
+        {/* <CurrentRouteContent/> */}
+        <TransfersInfo/>
     </div>
   )
 }

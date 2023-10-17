@@ -3,8 +3,6 @@ import "./RouteStops.scss"
 import RouteItem from "./route-item/RouteItem"
 import { route } from "src/app/mock-data/route"
 
-
-
 function RouteStops() {
 
     const stops = route.stops

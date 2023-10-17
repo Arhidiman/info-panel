@@ -1,0 +1,142 @@
+.reception-desks-scheme {
+    &-top {
+        width: 95%;
+        margin: 8px auto 38px auto;
+        &__floor-num {
+            margin: 8px 0 18px 0;
+            border-bottom: solid #D9D9D9 2px;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 42px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #403939
+        }
+        &__scheme-name {
+            padding: 10px 32px;
+            background: #B6E5FF;
+            &_ru {
+                margin-bottom: 5px;
+                text-align: left;
+                font-size: 40px;
+                font-weight: 700;
+                line-height: 40px;
+                letter-spacing: 0em;
+                color: #001914
+            }
+            &_eng {
+                text-align: left;
+                font-size: 28px;
+                font-weight: 500;
+                line-height: 42px;
+                letter-spacing: 0em;
+            }
+        }
+    }
+    &-middle {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &__item {
+           
+            display: flex;
+            align-items: center;
+            &-half {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                width: 64px;
+                height: 144px;
+                background: #B6E5FF;
+            
+                &-content {
+                    width: 45px;
+                    position: relative;
+                    font-size: 32px;
+                    font-weight: 700;
+                    line-height: 38px;
+                    letter-spacing: 0em;
+                    text-align: center;
+                    &.bar {
+                        font-size: 40px;
+                        font-weight: 200;
+                    }
+                    &.left {
+                        &::before {
+                            content: "🠖";
+                            position: absolute;
+                            right: 115%;
+                            font-size: 40px;
+                        }
+                    }
+                    &.right {
+                        &::after {
+                            content: "🠔";
+                            position: absolute;
+                            left: 115%;
+                            font-size: 40px;
+                            font-weight: 200;
+                        }
+                    }
+                }
+            }
+            &-divider {
+                height: 176px;
+                border-left: solid #001914 2px
+            }
+        }
+    }
+    &-bottom {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 45px;
+        &__enter-item {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+        &__enter-arrow {
+            width: 64px;
+            height: 64px;
+        }
+        &__enter-text {
+            &_ru {
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 32px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+            &_eng {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 30px;
+                letter-spacing: 0em;
+                text-align: left;
+            }   
+        }
+        &__middle {
+            padding: 10px 32px;
+            width: 450px;
+            background: #B6E5FF;
+            &-text {
+                &_ru {
+                    text-align: left;
+                    font-size: 32px;
+                    font-weight: 700;
+                    line-height: 32px;
+                    letter-spacing: 0em;
+                }
+                &_eng {
+                    text-align: left;
+                    font-family: PT Root UI;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 30px;
+                    letter-spacing: 0em;
+                }
+            }
+        }
+    }
+}
