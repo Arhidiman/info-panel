@@ -11,3 +11,18 @@ export type TFlight = {
     airplaneType: string,
     status: string
 }
+
+
+export type TStop =  { 
+    index: 0,
+    iconsBefore: [],
+    nameRus: "Останкино",
+    nameEng: "Ostankino",
+    iconsAfter: [],
+    transfers: [
+        {
+            icons: string[]
+        }
+    ],
+    poi: string[]
+}

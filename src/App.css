@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'PT Root UI';
-  src: url('assets/fonts/PT-Root-UI_Medium.ttf') format('truetype'),  
-
+  src: url('app/fonts/PT-Root-UI_Medium.ttf') format('truetype'),  
 } 
 
 html, body, div, span, h1, h2, h3, p, ul, li {
@@ -11,6 +10,7 @@ html, body, div, span, h1, h2, h3, p, ul, li {
 
 body {
   font-family: PT Root UI ;
+  color: #001914;
 }
 
 :root {

@@ -21,7 +21,7 @@
         max-height: 420px;
     }
     &-scrollable {
-        max-height: 460px;
+        max-height: 400px;
         overflow-y: scroll;
         position: relative;
         scrollbar-color: #e0e0e0;
@@ -30,9 +30,6 @@
         scrollbar-color: var(--scrollbarThumbColor) var(--scrollbarBgColor);
     }
 }
-
-
-
   .transfers-scrollable::-webkit-scrollbar {
     width: var(--scrollbarWidth);
   }
