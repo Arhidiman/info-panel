@@ -6,7 +6,7 @@ export const airportData = {
             direction: "Волгоград",
             company: "Аэрофлот",
             airplaneType: "В738",
-            status: "Регистрация 14-88"
+            status: "Задерживается"
         }, 
         {
             time: "12:15",
@@ -22,7 +22,7 @@ export const airportData = {
             direction: "Минеральные воды",
             company: "Победа",
             airplaneType: "XXXXXX",
-            status: "Регистрация 14-88"
+            status: "Прибыл в 23:10"
         },
     ],
     departures: [

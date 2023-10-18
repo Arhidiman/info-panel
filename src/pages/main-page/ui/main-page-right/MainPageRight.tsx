@@ -1,7 +1,7 @@
 import "./MainPageRight.scss"
 import { useEffect, useState,  } from "react"
 import contentTemplate from "src/app//images/content-template.png"
-import FlightsInfo from "src/widgets/airport-info/ui/FlightsInfo"
+import FlightsInfo from "src/widgets/flights-info/ui/FlightsInfo"
 import ReceptionDesksScheme from "src/widgets/reception-desks-scheme/ui/ReceptionDesksScheme"
 
 const screens = [
@@ -32,9 +32,9 @@ function MainPageRight() {
     return (
     
     <div className="main-page-right">
-      {screens[screenNum]}
-       {/* <FlightsInfo/>
-       <ReceptionDesksScheme/> */}
+      {/* {screens[screenNum]} */}
+       <FlightsInfo/>
+       {/* <ReceptionDesksScheme/> */}
     </div>
   )
 }

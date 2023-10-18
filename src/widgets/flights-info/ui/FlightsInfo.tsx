@@ -3,6 +3,7 @@ import { airportData } from "src/app/mock-data/airport"
 import arrivalImg from "src/app/images/icons/arrival.png"
 import departureImg from "src/app/images/icons/departure.png"
 import { flightDirection, TFlight } from "src/app/types/types"
+import { getFlightStatusClass } from "../lib/getFlightStatusClass"
 
 interface TFlightsInfo {
     type?: flightDirection
@@ -15,7 +16,7 @@ const flightItem = (flight: TFlight) => {
         <td className="air-port-info__table-cell direction">{flight.direction}</td>
         <td className="air-port-info__table-cell company">{flight.company}</td>
         <td className="air-port-info__table-cell airplane">{flight.airplaneType}</td>
-        <td className="air-port-info__table-cell status">{flight.status}</td>
+        <td className={`air-port-info__table-cell status ${getFlightStatusClass(flight.status)}`}>{flight.status}</td>
     </tr>  
 }
 
