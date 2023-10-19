@@ -72,6 +72,7 @@ function MainPageLeftBody({ setCurrentStop, setInMove }: IMainPageLeftBody) {
       if(stops.length > 0) {
         setTransfers(stops[nextStop].transfers) 
         setCurrentStop(stops[nextStop - 1])
+        console.log(stops[nextStop - 1])
       }
     }, [nextStop, stops])
 
