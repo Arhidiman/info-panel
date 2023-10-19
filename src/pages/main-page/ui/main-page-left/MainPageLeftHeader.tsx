@@ -1,18 +1,21 @@
 import { TStop } from "src/app/types/types"
-
-interface IMainPageLeftHeader {
-  currentStop: TStop | null
-}
+import { AppContext } from "../MainPage"
 
 
-function MainPageLeftHeader({ currentStop }: IMainPageLeftHeader) {
-    console.log(currentStop)
-
+function MainPageLeftHeader() {
     return (
-    <header className="main-page-header">
-        <h1 className="main-page__stop-name-ru">{currentStop && currentStop.nameRus}</h1>
-        <h2 className="main-page__stop-name-eng">{currentStop && currentStop.nameEng}</h2>
-    </header>
+
+    <AppContext.Consumer>
+        { ({currentStop}) => {
+            if(currentStop) console.log(currentStop.nameRus)
+            return <header className="main-page-header">
+                <h1 className="main-page__stop-name-ru">{currentStop && currentStop.nameRus}</h1>
+                <h2 className="main-page__stop-name-eng">{currentStop && currentStop.nameEng}</h2>
+            </header>
+          }
+        }
+    </AppContext.Consumer>
+   
   )
 }
 
