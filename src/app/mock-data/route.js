@@ -1,6 +1,5 @@
 
 const baseUrl = "http://192.168.100.95:8080"
-
 export const route = {
     "type": "ROUTE",
     "icon": baseUrl+"/sdcard/content/icons/D7285992E332DE9AB49500BD8DFFBB7F.svg",

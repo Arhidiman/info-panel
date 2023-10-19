@@ -9,8 +9,8 @@ interface TFlightsInfo {
     type?: flightDirection
 }
 
-const flightItem = (flight: TFlight) => {
-    return <tr className="table-row">
+const flightItem = (flight: TFlight, i: number) => {
+    return <tr className="table-row" key={i}>
         <td className="air-port-info__table-cell time">{flight.time}</td>
         <td className="air-port-info__table-cell flight"><span className="air-port-info__table-cell-selected">{flight.flight}</span></td>
         <td className="air-port-info__table-cell direction">{flight.direction}</td>

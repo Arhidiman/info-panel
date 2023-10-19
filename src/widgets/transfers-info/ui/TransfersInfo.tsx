@@ -1,20 +1,20 @@
-import { route } from "src/app/mock-data/route" 
 import "./TransfersInfo.scss"
 import Transfers from "./transfers/Transfers"
+import { TTransfer } from "src/app/types/types"
 
-const currentStop = 1 //текущая остановка будет приходить с бэка
-const transfers = route.stops[currentStop].transfers
+interface ITransfersInfo {
+    transfers: TTransfer[],
+}
 
-const [busTransfers, trolleysTransfers, metroTransfers] = transfers
+function TransfersInfo({ transfers }: ITransfersInfo) {
 
-function TransfersInfo() {
-
+    const [busTransfers, trolleysTransfers, metroTransfers] = transfers
     return (
         <div className="transfers-scrollable">
             <div className="transfers-wrapper">
-                {busTransfers && <Transfers icons={route.stops[currentStop].transfers[0].icons}/>}
-                {trolleysTransfers && <Transfers icons={route.stops[currentStop].transfers[1].icons}/>}
-                {metroTransfers && <Transfers icons={route.stops[currentStop].transfers[2].icons}/>}
+                {busTransfers && <Transfers icons={busTransfers.icons}/>}
+                {trolleysTransfers && <Transfers icons={trolleysTransfers.icons}/>}
+                {metroTransfers && <Transfers icons={metroTransfers.icons}/>}
             </div>
         </div>
     )

@@ -12,12 +12,11 @@ export type TFlight = {
     status: string
 }
 
-
 export type TStop =  { 
     index: 0,
     iconsBefore: [],
-    nameRus: "Останкино",
-    nameEng: "Ostankino",
+    nameRus: string,
+    nameEng: string,
     iconsAfter: [],
     transfers: [
         {
@@ -25,4 +24,13 @@ export type TStop =  {
         }
     ],
     poi: string[]
+}
+
+export type TTransfer =  { 
+    icons: string[]
+}
+
+export type TStopTime = {
+    index: number, 
+    time: number
 }

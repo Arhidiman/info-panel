@@ -28,7 +28,6 @@ function MainPageRight() {
       return () => clearInterval(interval)
     }, [screenNum])
 
-    console.log(screenNum)
     return (
     
     <div className="main-page-right">

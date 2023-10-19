@@ -3,31 +3,34 @@ import "./RouteStops.scss"
 import RouteItem from "./route-item/RouteItem"
 import { route } from "src/app/mock-data/route"
 import { TStop } from "src/app/types/types"
+import { TStopTime } from "src/app/types/types"
 
-function RouteStops() {
+interface IStops {
+    stops: TStop[],
+    nextStop: number,
+    stopsTimes: TStopTime[],
+    
+}
+
+function RouteStops({ stops, nextStop, stopsTimes }: IStops) {
+
+    // console.log(stopsTimes)
+    // console.log(nextStop)
 
     let count = 0
-    const stops = route.stops
     const inMove = true
-    const getRandomStop = () => Math.round(Math.random()*stops.length)
     const [displayedStops, setDisplayedStops] = useState(4)
-    const [currentStop, setCurrentStop] = useState(getRandomStop)
-    const [currentStopInterval, setCurrentTimeInterval] = useState(null)
 
     useEffect(() => {
         inMove ? setDisplayedStops(4) : setDisplayedStops(3) 
     }, [inMove])
 
-    useEffect(() => {
-      const interval = setTimeout(() => {
-        setCurrentStop(Math.round(Math.random()*25))
-      },2000)
-      setCurrentTimeInterval(interval)
-      return () => clearInterval(interval)
-    }, [currentStop])
+   
 
     const stop = (stop: TStop, i: number) => {
-        if(count < displayedStops && i >= currentStop) {
+        if(count < displayedStops && i >= nextStop) {
+
+            // console.log(stopsTimes[count].time)
             count +=1
             return <RouteItem 
                 key={i}
@@ -36,7 +39,7 @@ function RouteStops() {
                 isLast={i === stops.length - 1}
                 nameRus={stop.nameRus} 
                 nameEng={stop.nameEng} 
-                timeLeft={3+i*5}
+                timeLeft={stopsTimes[count-1].time}
             />
         }
     }
