@@ -33,7 +33,10 @@
   &-right {
       width: 960px;
       border-left: solid #334743 2px;
-      color: #bdbdbd
+      color: #bdbdbd;
+      &-image {
+        width: 960px
+      }
   }
 }
 

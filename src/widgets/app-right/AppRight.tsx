@@ -1,9 +1,10 @@
 import { useEffect, useState,  } from "react"
 import contentTemplate from "@/app//images/content-template.png"
 import FlightsInfo from "@/widgets/flights-info/ui/FlightsInfo"
+import { srcBaseUrl } from "@/shared/constants/urls"
 
 const screens = [
-  <img src={contentTemplate} alt="currnet place content"/>,
+  <img className="app-page-right-image" src={srcBaseUrl+"/sdcard/intro/intro_default.png"} alt="currnet place content"/>,
   <FlightsInfo/>
 ]
 
@@ -28,8 +29,8 @@ function AppRight() {
     return (
     
     <div className="app-page-right">
-      {/* {screens[screenNum]} */}
-       <FlightsInfo/>
+      {screens[0]}
+       {/* <FlightsInfo/> */}
        {/* <ReceptionDesksScheme/> */}
     </div>
   )
