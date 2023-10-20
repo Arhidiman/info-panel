@@ -1,12 +1,11 @@
-import './App.scss'
+import '@/App.scss'
 import AppLeft from '@/widgets/app-left/AppLeft'
-import AppRight from './widgets/app-right/AppRight'
+import AppRight from '@/widgets/app-right/AppRight'
 import { useState, useEffect } from "react"
 import { createContext } from "react"
 import useWebSocket from 'react-use-websocket';
-import { setRouteStates } from './shared/lib/setRoutStates'
-import { wsUrl } from './shared/constants/urls'
-
+import { setRouteStates } from '@/shared/lib/setRoutStates'
+import { wsUrl } from '@/shared/constants/urls'
 export const AppContext = createContext(null)
 
 function App() {
@@ -32,17 +31,13 @@ function App() {
     }
   }, [nextStop, stops])
 
-  useEffect(() => {
-    console.log('in move', inMove)
-  }, [inMove]);
-
   return (
     <div className="app-page">
       <AppContext.Provider value={{lastMessage, stops, nextStop, transfers, speed, stopsTimes, currentStop, inMove, routeIcon}}>
         <AppLeft/>
-        <AppRight/>
+        <AppRight/> 
       </AppContext.Provider>
-</div>
+    </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import AppLeftHeader from "../../entities/app-left-header/AppLeftHeader"
+import AppLeftHeader from "@/entities/app-left-header/AppLeftHeader"
 import ApppLeftContent from "./AppLeftContent"
 
 function AppLeft() {

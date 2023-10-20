@@ -9,7 +9,6 @@ interface IRouteItem {
 }
 
 function RouteItem({className, topDisplayed, inMove, isLast, nameRus, nameEng, timeLeft}: IRouteItem) {
-    // console.log(inMove && topDisplayed, `top? ${topDisplayed}`, `inMove? ${inMove}`)
     return (
     <div className={`route-item ${inMove ? 'in-move' : ""}`}>
         <span className="route-item__time-left">{timeLeft}</span>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import RouteStops from "@/widgets/route-stops/ui/RouteStops"
-import TransfersInfo from "../transfers-info/ui/TransfersInfo"
+import TransfersInfo from "@/widgets/transfers-info/ui/TransfersInfo"
 import InfoPlate from "@/entities/info-plate/InfoPlate"
 import { AppContext } from "@/App"
 

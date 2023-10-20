@@ -23,7 +23,6 @@ function RouteStops({ inMove }: IRouteStops) {
                     try {
                         if (count < displayedStops && i >= nextStop) {
                             count +=1
-                            console.log(count)
                             return <RouteItem 
                             key={i}
                             topDisplayed={count === 1}

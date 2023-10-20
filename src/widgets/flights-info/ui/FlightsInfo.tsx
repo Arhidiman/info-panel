@@ -3,7 +3,7 @@ import { airportData } from "@/app/mock-data/airport"
 import arrivalImg from "@/app/images/icons/arrival.png"
 import departureImg from "@/app/images/icons/departure.png"
 import { flightDirection, TFlight } from "@/app/types/types"
-import { getFlightStatusClass } from "../lib/getFlightStatusClass"
+import { getFlightStatusClass } from "@/widgets/flights-info/lib/getFlightStatusClass"
 
 interface TFlightsInfo {
     type?: flightDirection
@@ -29,15 +29,17 @@ function FlightsInfo({ type=flightDirection.departures }: TFlightsInfo) {
             </div>
             
             <table className="air-port-info__table">
-                <tr className="air-port-info__table-top table-row">
-                    <td className="air-port-info__table-top-cell names">Время</td>
-                    <td className="air-port-info__table-top-cell names">Рейс</td>
-                    <td className="air-port-info__table-top-cell direction names">Направление</td>
-                    <td className="air-port-info__table-top-cell company names">Авиакомпания</td>
-                    <td className="air-port-info__table-top-cell aiplane names">Тип самолёта</td>
-                    <td className="air-port-info__table-top-cell status names">Статус</td>
-                </tr>   
-                {airportData.arrivals.map(flightItem)}
+                <tbody>
+                    <tr className="air-port-info__table-top table-row">
+                        <td className="air-port-info__table-top-cell names">Время</td>
+                        <td className="air-port-info__table-top-cell names">Рейс</td>
+                        <td className="air-port-info__table-top-cell direction names">Направление</td>
+                        <td className="air-port-info__table-top-cell company names">Авиакомпания</td>
+                        <td className="air-port-info__table-top-cell aiplane names">Тип самолёта</td>
+                        <td className="air-port-info__table-top-cell status names">Статус</td>
+                    </tr>
+                    {airportData.arrivals.map(flightItem)}
+                </tbody>
             </table>
         </div>
   )
