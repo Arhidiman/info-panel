@@ -1,16 +1,17 @@
+import { srcBaseUrl } from "@/shared/constants/urls"
+
 interface ITransfers {
     icons: string[]
 }
-const baseUrl =  `http://${import.meta.env.VITE_SOCKET_URL}:8080`
 
 function Transfers({ icons }: ITransfers) {
     return (      
         <div className="transfers">
-            <img className="transfers__icon-main" src={icons && baseUrl+icons[0]} alt="bus image"/>
+            <img className="transfers__icon-main" src={icons && srcBaseUrl+icons[0]} alt="bus image"/>
             <div className="transfers-icons">
                 {
                     icons && icons.map((icon, i) => {
-                        if(i !== 0) return <img className="transfers__icon" src={baseUrl+icon} alt="bus transfer" key={i}/>
+                        if(i !== 0) return <img className="transfers__icon" src={srcBaseUrl+icon} alt="bus transfer" key={i}/>
                     })
                 }
             </div>

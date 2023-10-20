@@ -5,12 +5,13 @@ import { useState, useEffect } from "react"
 import { createContext } from "react"
 import useWebSocket from 'react-use-websocket';
 import { setRouteStates } from './shared/lib/setRoutStates'
+import { wsUrl } from './shared/constants/urls'
+
 export const AppContext = createContext(null)
 
 function App() {
 
-  const wsUrl = import.meta.env.VITE_SOCKET_URL
-  const { lastMessage } = useWebSocket(`ws://${wsUrl}:23245`); 
+  const { lastMessage } = useWebSocket(wsUrl); 
   const [ stops, setStops ] = useState([])
   const [ nextStop, setNextStop ] = useState(5)
   const [ transfers, setTransfers] = useState([])
@@ -18,9 +19,10 @@ function App() {
   const [ stopsTimes, setStopTimes ] = useState([])
   const [currentStop, setCurrentStop] = useState(null)
   const [inMove, setInMove] = useState(true)
+  const [routeIcon, setRouteIcon] = useState("")
   
   useEffect(() => {
-    setRouteStates(lastMessage, setSpeed, setStops, setStopTimes, setNextStop, setInMove)
+    setRouteStates(lastMessage, setSpeed, setStops, setStopTimes, setNextStop, setInMove, setRouteIcon)
   }, [lastMessage]);
 
   useEffect(() => {
@@ -36,7 +38,7 @@ function App() {
 
   return (
     <div className="app-page">
-      <AppContext.Provider value={{lastMessage, stops, nextStop, transfers, speed, stopsTimes, currentStop, inMove}}>
+      <AppContext.Provider value={{lastMessage, stops, nextStop, transfers, speed, stopsTimes, currentStop, inMove, routeIcon}}>
         <AppLeft/>
         <AppRight/>
       </AppContext.Provider>

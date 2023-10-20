@@ -5,7 +5,8 @@ export const setRouteStates = (
     setStops: Dispatch<SetStateAction<TStop[]>>, 
     setStopTimes: Function, 
     setNextStop: Dispatch<SetStateAction<number>>,
-    setInMove: Dispatch<SetStateAction<boolean>>
+    setInMove: Dispatch<SetStateAction<boolean>>,
+    setRouteIcon: Dispatch<SetStateAction<string>>
     ) => {
    
     if(message) {
@@ -18,7 +19,10 @@ export const setRouteStates = (
             } break
             case "ROUTE": {
                 const stops = (JSON.parse(message.data).stops)
+                const routeIcon = (JSON.parse(message.data).icon)
                 setStops(stops) 
+                setRouteIcon(routeIcon)
+                console.log(JSON.parse(message.data))
             } break
             case "STOP_TIMES": {
                 const nextStop = JSON.parse(message.data).stops[0].index

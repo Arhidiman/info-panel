@@ -5,6 +5,17 @@
   &-header {
       padding: 15px 32px;
       background: #B6E5FF;
+      &-stop {
+        color: #ffffff;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 31px;
+        margin-left: 10px;
+        height: 112px;
+        border-bottom: solid 2px #D9D9D9;
+        color: #403939
+      }
   }
   &__stop-name{
       &-ru {
@@ -22,6 +33,7 @@
   &-right {
       width: 960px;
       border-left: solid #334743 2px;
+      color: #bdbdbd
   }
 }
 
