@@ -1,18 +1,20 @@
 import { Dispatch, SetStateAction } from "react"
-import { TStop } from "src/app/types/types"
+import { TStop } from "@/app/types/types"
 export const setRouteStates = (
     message: any, setSpeed: Dispatch<SetStateAction<number>>, 
     setStops: Dispatch<SetStateAction<TStop[]>>, 
     setStopTimes: Function, 
-    setNextStop: Function 
+    setNextStop: Dispatch<SetStateAction<number>>,
+    setInMove: Dispatch<SetStateAction<boolean>>
     ) => {
    
     if(message) {
         const type = JSON.parse(message.data).type
-        console.log(type)
+        // console.log(type)
         switch(type) {
             case "SPEED": {
-                setSpeed(JSON.parse(message.data).speed)      
+                setSpeed(JSON.parse(message.data).speed)  
+                console.log(JSON.parse(message.data).speed)    
             } break
             case "ROUTE": {
                 const stops = (JSON.parse(message.data).stops)
@@ -23,9 +25,15 @@ export const setRouteStates = (
                 const stopsTimes = JSON.parse(message.data).stops
                 setStopTimes(stopsTimes)
             } break
+            case "STOP_BEGIN": {
+                console.log("stop begins")
+                setInMove(false)
+            } break
             case "STOP_END": {
                 const nextStop = JSON.parse(message.data).index
                 setNextStop(nextStop)
+                setInMove(true)
+                console.log("stop ends")
             } break 
         }
     }

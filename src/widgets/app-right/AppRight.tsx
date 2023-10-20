@@ -1,6 +1,6 @@
 import { useEffect, useState,  } from "react"
-import contentTemplate from "src/app//images/content-template.png"
-import FlightsInfo from "src/widgets/flights-info/ui/FlightsInfo"
+import contentTemplate from "@/app//images/content-template.png"
+import FlightsInfo from "@/widgets/flights-info/ui/FlightsInfo"
 
 const screens = [
   <img src={contentTemplate} alt="currnet place content"/>,

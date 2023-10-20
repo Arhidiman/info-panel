@@ -57,6 +57,11 @@
     &__stop {
         &-name {
             margin-left: 25px;
+            width: 70%;
+            padding: 16px;
+            &.selected {
+                background: #B6E5FF;;
+            }
         }
         &_ru {
             margin-bottom: 4px;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import RouteStops from "src/widgets/route-stops/ui/RouteStops"
-import InfoPlate from "src/eitities/info-plate/InfoPlate"
-import { AppContext } from "src/App"
+import RouteStops from "@/widgets/route-stops/ui/RouteStops"
+import TransfersInfo from "../transfers-info/ui/TransfersInfo"
+import InfoPlate from "@/entities/info-plate/InfoPlate"
+import { AppContext } from "@/App"
 
 function AppLeftContent() {
 
@@ -16,22 +17,15 @@ function AppLeftContent() {
       return () => clearInterval(interval)
     }, [routeContent])
 
-
     return (
     <div className="app-page-left">
-        {
-          // routeContent ? <RouteStops stops={stops}/> : <TransfersInfo transfers={transfers}/>
-        }
         <AppContext.Consumer>
           {
-            ({speed}) => 
-            <> 
-              <RouteStops/>
-              <InfoPlate speed={speed} />
-            </>
+              ({transfers, inMove}) => routeContent ? <RouteStops inMove={inMove}/> : <TransfersInfo transfers={transfers}/>
           }
+          
         </AppContext.Consumer>
-       
+        <InfoPlate/>        
     </div>
   )
 }

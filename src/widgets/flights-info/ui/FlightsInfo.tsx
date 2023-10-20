@@ -1,8 +1,8 @@
 import "./FlightsInfo.scss"
-import { airportData } from "src/app/mock-data/airport"
-import arrivalImg from "src/app/images/icons/arrival.png"
-import departureImg from "src/app/images/icons/departure.png"
-import { flightDirection, TFlight } from "src/app/types/types"
+import { airportData } from "@/app/mock-data/airport"
+import arrivalImg from "@/app/images/icons/arrival.png"
+import departureImg from "@/app/images/icons/departure.png"
+import { flightDirection, TFlight } from "@/app/types/types"
 import { getFlightStatusClass } from "../lib/getFlightStatusClass"
 
 interface TFlightsInfo {

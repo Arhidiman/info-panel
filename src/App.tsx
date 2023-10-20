@@ -1,5 +1,5 @@
 import './App.scss'
-import AppLeft from './widgets/app-left/AppLeft'
+import AppLeft from '@/widgets/app-left/AppLeft'
 import AppRight from './widgets/app-right/AppRight'
 import { useState, useEffect } from "react"
 import { createContext } from "react"
@@ -9,7 +9,8 @@ export const AppContext = createContext(null)
 
 function App() {
 
-  const { lastMessage } = useWebSocket("ws://192.168.100.194:23245"); 
+  const wsUrl = import.meta.env.VITE_SOCKET_URL
+  const { lastMessage } = useWebSocket(`ws://${wsUrl}:23245`); 
   const [ stops, setStops ] = useState([])
   const [ nextStop, setNextStop ] = useState(5)
   const [ transfers, setTransfers] = useState([])
@@ -19,7 +20,7 @@ function App() {
   const [inMove, setInMove] = useState(true)
   
   useEffect(() => {
-    setRouteStates(lastMessage, setSpeed, setStops, setStopTimes, setNextStop)
+    setRouteStates(lastMessage, setSpeed, setStops, setStopTimes, setNextStop, setInMove)
   }, [lastMessage]);
 
   useEffect(() => {
@@ -28,6 +29,10 @@ function App() {
       setCurrentStop(stops[nextStop - 1])
     }
   }, [nextStop, stops])
+
+  useEffect(() => {
+    console.log('in move', inMove)
+  }, [inMove]);
 
   return (
     <div className="app-page">
