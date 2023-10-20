@@ -1,0 +1,22 @@
+.info-plate {
+    display: inline-flex;
+    position: absolute;
+    bottom: 112px;
+    right: 0;
+    justify-content: space-around;
+    padding: 4px 24px;
+    width: 350px;
+    background: #D1D1D1;
+    border: solid lightgray 1px;
+    border-radius: 2px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #3E3A6B;
+    &-wrapper {
+        display: inline;
+        float:right
+    }
+}
