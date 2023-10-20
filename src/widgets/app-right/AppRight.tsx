@@ -1,16 +1,13 @@
-import "./MainPageRight.scss"
 import { useEffect, useState,  } from "react"
 import contentTemplate from "src/app//images/content-template.png"
 import FlightsInfo from "src/widgets/flights-info/ui/FlightsInfo"
-import ReceptionDesksScheme from "src/widgets/reception-desks-scheme/ui/ReceptionDesksScheme"
 
 const screens = [
   <img src={contentTemplate} alt="currnet place content"/>,
-  <FlightsInfo/>,
-  <ReceptionDesksScheme/>
+  <FlightsInfo/>
 ]
 
-function MainPageRight() {
+function AppRight() {
 
     const [iscreenInterval, setScreenInterval] = useState(null)
     const [screenNum, setScreenNum] = useState(0)
@@ -30,7 +27,7 @@ function MainPageRight() {
 
     return (
     
-    <div className="main-page-right">
+    <div className="app-page-right">
       {/* {screens[screenNum]} */}
        <FlightsInfo/>
        {/* <ReceptionDesksScheme/> */}
@@ -38,4 +35,4 @@ function MainPageRight() {
   )
 }
 
-export default MainPageRight
+export default AppRight
