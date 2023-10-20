@@ -23,7 +23,6 @@ function AppLeftContent() {
           {
               ({transfers, inMove}) => routeContent ? <RouteStops inMove={inMove}/> : <TransfersInfo transfers={transfers}/>
           }
-          
         </AppContext.Consumer>
         <InfoPlate/>        
     </div>

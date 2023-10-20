@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="app-page">
       <AppContext.Provider value={{lastMessage, stops, nextStop, transfers, speed, stopsTimes, currentStop, inMove, routeIcon}}>
-        <AppLeft/>
+        <AppLeft stops={stops}/>
         <AppRight/> 
       </AppContext.Provider>
     </div>

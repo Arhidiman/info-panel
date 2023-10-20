@@ -1,12 +1,24 @@
 import AppLeftHeader from "@/entities/app-left-header/AppLeftHeader"
 import ApppLeftContent from "./AppLeftContent"
+import { AppContext } from "@/App"
+import Spinner from "@/shared/spinner/Spinner"
+import { TStop } from "@/app/types/types"
 
-function AppLeft() {
+interface IAppLeftIntrface {
+    stops: TStop[]
+}
 
+function AppLeft({stops}: IAppLeftIntrface) {
     return (
-      <div className="app-page-left">
-          <AppLeftHeader/>
-          <ApppLeftContent/>
+      <div className={`app-page-left ${stops.length > 0 ? "" : "center-content"}`}>
+        {
+            stops.length > 0 ?
+            <>
+                <AppLeftHeader/>
+                <ApppLeftContent/>
+            </>
+            : <Spinner/>
+        }
       </div>
       )
 }
