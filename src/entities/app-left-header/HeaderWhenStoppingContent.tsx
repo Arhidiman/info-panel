@@ -8,9 +8,8 @@ function HeaderWhenStoppingContent() {
                 ({routeIcon}) =>  {
                     return <>
                         <img src={srcBaseUrl+routeIcon} alt="route icon"/>
-                        <div className="app-page__stop-name-ru">Новособорная - ул. Новая Дорога</div> 
+                        <div className="app-page__route-name">Новособорная - ул. Новая Дорога</div> 
                     </>
-                
                 }
             }
         </AppContext.Consumer>

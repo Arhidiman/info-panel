@@ -1,11 +1,11 @@
 .info-plate {
     display: inline-flex;
+    gap: 20px;
     position: absolute;
-    bottom: 112px;
-    right: 0;
+    bottom: 8px;
+    right: 24px;
     justify-content: space-around;
-    padding: 4px 24px;
-    width: 350px;
+    padding: 6px 24px;
     background: #D1D1D1;
     border: solid lightgray 1px;
     border-radius: 2px;
@@ -18,5 +18,10 @@
     &-wrapper {
         display: inline;
         float:right
+    }
+    @media screen and (min-width: 2781.98px) {
+        gap: 25px;
+        font-size: 30px;
+        padding: 10px 30px;
     }
 }

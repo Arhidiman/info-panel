@@ -8,7 +8,7 @@ function AppLeftHeader() {
     <AppContext.Consumer>
         { ({currentStop, inMove}) => {
             if(currentStop) 
-              return <header className={`${!inMove ? "app-page-header-stop" : "app-page-header"}`}>
+              return <header className={`${!inMove ? "app-page-header stop" : "app-page-header"}`}>
                 {
                   inMove ? <HeaderInMoveContent/> : <HeaderWhenStoppingContent/>
                 }

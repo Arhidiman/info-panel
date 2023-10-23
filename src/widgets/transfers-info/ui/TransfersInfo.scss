@@ -1,5 +1,4 @@
 .transfers {
-    height: 400px;
     display: flex;
     gap: 16px;
     margin-bottom: 16px;
@@ -9,9 +8,15 @@
     }
     &-icons {
         display: grid;
-        grid-template-columns: repeat(7, auto);
+
         column-gap: 16px;
         row-gap: 8px;
+        @media screen and (min-width: 1920px) {
+          grid-template-columns: repeat(7, auto);        
+        }
+        @media screen and (min-width: 2782px) {
+          grid-template-columns: repeat(11, auto);        
+        }
     }
     &__icon {
         width: 94px;

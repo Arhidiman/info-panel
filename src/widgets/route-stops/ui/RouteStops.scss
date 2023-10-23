@@ -1,9 +1,15 @@
 .route-item {
     display: flex;
     align-items: center;
-    height: 134px;
+    height: 136px;
+    @media screen and (min-width: 2782px) {
+        height: 212px;
+    }
     &.in-move {
-        height: 100px;
+        height: 102px;
+        @media screen and (min-width: 2782px) {
+            height: 160px;
+        }
     }
     &__route-line {
         display: flex;
@@ -35,7 +41,6 @@
             }
         }
     }
-    
     &__time-left {
         display: flex;
         flex-direction: column;
@@ -58,7 +63,7 @@
         &-name {
             margin-left: 25px;
             width: 70%;
-            padding: 16px;
+            padding: 10px 16px;
             &.selected {
                 background: #B6E5FF;;
             }
@@ -66,17 +71,24 @@
         &_ru {
             margin-bottom: 4px;
             font-size: 32px;
-            font-weight: 500;
+            font-weight: 700;
             line-height: 32px;
             letter-spacing: 0em;
             text-align: left;
+            @media screen and (min-width: 2782px) {
+                margin-bottom: 10px;
+                font-size: 40px;
+            }
         }
         &_eng {
             font-size: 24px;
             font-weight: 500;
             line-height: 24px;
             letter-spacing: 0em;
-            text-align: left;            
+            text-align: left;     
+            @media screen and (min-width: 2782px) {
+                font-size: 32px;
+            }       
         }
     }
 }

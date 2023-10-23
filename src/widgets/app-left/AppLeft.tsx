@@ -1,6 +1,5 @@
 import AppLeftHeader from "@/entities/app-left-header/AppLeftHeader"
 import ApppLeftContent from "./AppLeftContent"
-import { AppContext } from "@/App"
 import Spinner from "@/shared/spinner/Spinner"
 import { TStop } from "@/app/types/types"
 

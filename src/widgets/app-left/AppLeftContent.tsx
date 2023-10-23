@@ -18,11 +18,12 @@ function AppLeftContent() {
     }, [routeContent])
 
     return (
-    <div className="app-page-left">
+    <div className="app-page-left-content">
         <AppContext.Consumer>
           {
-              ({transfers, inMove}) => routeContent ? <RouteStops inMove={inMove}/> : <TransfersInfo transfers={transfers}/>
+                ({transfers, inMove}) => routeContent ? <RouteStops inMove={inMove}/> : <TransfersInfo transfers={transfers}/>
           }
+        
         </AppContext.Consumer>
         <InfoPlate/>        
     </div>
