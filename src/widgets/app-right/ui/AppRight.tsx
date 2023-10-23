@@ -30,12 +30,11 @@ function AppRight() {
     return (
     <AppContext.Consumer>
       {
-        ({playImage}) => {
-            return <div className="app-page-right">
-                {screens(playImage)[0]}
-            </div>
+        ({playImage}) => <div className="app-page-right">
+              {screens(playImage)[0]}
+          </div>
         
-        }
+        
       }
     </AppContext.Consumer>
   

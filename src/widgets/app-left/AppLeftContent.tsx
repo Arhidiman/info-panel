@@ -21,9 +21,8 @@ function AppLeftContent() {
     <div className="app-page-left-content">
         <AppContext.Consumer>
           {
-                ({transfers, inMove}) => !routeContent && transfers.lengtn > 0  ?  <TransfersInfo transfers={transfers}/> : <RouteStops inMove={inMove}/>
+                ({transfers, inMove}) => !routeContent && transfers.length > 0  ?  <TransfersInfo transfers={transfers}/> : <RouteStops inMove={inMove}/>
           }
-        
         </AppContext.Consumer>
         <InfoPlate/>        
     </div>

@@ -12,7 +12,6 @@ export const setRouteStates = (
    
     if(message) {
         const type = JSON.parse(message.data).type
-        // console.log(type)
         switch(type) {
             case "SPEED": {
                 setSpeed(JSON.parse(message.data).speed)  
@@ -20,9 +19,9 @@ export const setRouteStates = (
             case "ROUTE": {
                 const stops = (JSON.parse(message.data).stops)
                 const routeIcon = (JSON.parse(message.data).icon)
-                // console.log(JSON.parse(message.data))
                 setStops(stops) 
                 setRouteIcon(routeIcon)
+                console.log(routeIcon)
             } break
             case "STOP_TIMES": {
                 const nextStop = JSON.parse(message.data).stops[0].index

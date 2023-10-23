@@ -24,7 +24,7 @@ function RouteStops({ inMove }: IRouteStops) {
                         if (count < displayedStops && i >= nextStop) {
                             count +=1
                             return <RouteItem 
-                            key={i}
+                            key={stop.nameRus}
                             topDisplayed={count === 1}
                             className={count === displayedStops ? 'line-fade' : ""}
                             inMove={inMove}
@@ -42,17 +42,17 @@ function RouteStops({ inMove }: IRouteStops) {
     }
 
     return (
-        <>
-            <div className="route-stops">
-                <AppContext.Consumer>                        
-                    {
-                        ({stops}) => {
-                            return stops.map(stop)
-                        }
+        
+        <div className="route-stops">
+            <AppContext.Consumer>                        
+                {
+                    ({stops}) => {
+                        return stops.map(stop)
                     }
-                </AppContext.Consumer>
-            </div>
-        </>
+                }
+            </AppContext.Consumer>
+        </div>
+        
     )
 }
 
