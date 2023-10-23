@@ -6,11 +6,13 @@ export const setRouteStates = (
     setStopTimes: Function, 
     setNextStop: Dispatch<SetStateAction<number>>,
     setInMove: Dispatch<SetStateAction<boolean>>,
-    setRouteIcon: Dispatch<SetStateAction<string>>
+    setRouteIcon: Dispatch<SetStateAction<string>>,
+    setPlayImage: Dispatch<SetStateAction<string>>
     ) => {
    
     if(message) {
         const type = JSON.parse(message.data).type
+        // console.log(type)
         switch(type) {
             case "SPEED": {
                 setSpeed(JSON.parse(message.data).speed)  
@@ -18,6 +20,7 @@ export const setRouteStates = (
             case "ROUTE": {
                 const stops = (JSON.parse(message.data).stops)
                 const routeIcon = (JSON.parse(message.data).icon)
+                // console.log(JSON.parse(message.data))
                 setStops(stops) 
                 setRouteIcon(routeIcon)
             } break
@@ -33,6 +36,10 @@ export const setRouteStates = (
                 const nextStop = JSON.parse(message.data).index
                 setNextStop(nextStop)
                 setInMove(true)
+            } break 
+            case "PLAY_IMAGE": {
+                const playImage = JSON.parse(message.data).src
+                setPlayImage(playImage)
             } break 
         }
     }

@@ -19,13 +19,14 @@ function App() {
   const [currentStop, setCurrentStop] = useState(null)
   const [inMove, setInMove] = useState(true)
   const [routeIcon, setRouteIcon] = useState("")
-  
+  const [playImage, setPlayImage] = useState("")
+
   useEffect(() => {
-    setRouteStates(lastMessage, setSpeed, setStops, setStopTimes, setNextStop, setInMove, setRouteIcon)
+    setRouteStates(lastMessage, setSpeed, setStops, setStopTimes, setNextStop, setInMove, setRouteIcon, setPlayImage)
   }, [lastMessage]);
 
   useEffect(() => {
-    if(stops.length > 0) {
+    if(stops.length > 0 && stops[nextStop]) {
       setTransfers(stops[nextStop].transfers) 
       setCurrentStop(stops[nextStop - 1])
     }
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <div className="app-page">
-      <AppContext.Provider value={{lastMessage, stops, nextStop, transfers, speed, stopsTimes, currentStop, inMove, routeIcon}}>
+      <AppContext.Provider value={{lastMessage, stops, nextStop, transfers, speed, stopsTimes, currentStop, inMove, routeIcon, playImage}}>
         <AppLeft stops={stops}/>
         <AppRight/> 
       </AppContext.Provider>

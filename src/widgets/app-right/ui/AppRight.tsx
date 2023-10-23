@@ -2,9 +2,10 @@ import { useEffect, useState,  } from "react"
 import contentTemplate from "@/app//images/content-template.png"
 import FlightsInfo from "@/widgets/flights-info/ui/FlightsInfo"
 import { srcBaseUrl } from "@/shared/constants/urls"
+import { AppContext } from "@/App"
 
-const screens = [
-  <img className="app-page-right-image" src={srcBaseUrl+"/sdcard/intro/intro_default.png"} alt="currnet place content"/>,
+const screens = (playImageLink: string) => [
+  <img className="app-page-right-image" src={srcBaseUrl+playImageLink} alt="currnet place content"/>,
   <FlightsInfo/>
 ]
 
@@ -27,12 +28,17 @@ function AppRight() {
     }, [screenNum])
 
     return (
-    
-    <div className="app-page-right">
-      {screens[0]}
-       {/* <FlightsInfo/> */}
-       {/* <ReceptionDesksScheme/> */}
-    </div>
+    <AppContext.Consumer>
+      {
+        ({playImage}) => {
+            return <div className="app-page-right">
+                {screens(playImage)[0]}
+            </div>
+        
+        }
+      }
+    </AppContext.Consumer>
+  
   )
 }
 

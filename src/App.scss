@@ -3,14 +3,14 @@
   justify-content: center;
   max-height: 540px;
   &-header {
+    display: flex;
+    align-items: center;
       padding: 15px 32px;
       height: 95px;
       background: #B6E5FF;
       &.stop {
         background: #ffffff;
-        display: flex;
         justify-content: start;
-        align-items: center;
         gap: 31px;
         border-bottom: solid 2px #D9D9D9;
         color: #403939
@@ -62,6 +62,7 @@
       }
   }
   &-right {
+    display: flex;
     @media screen and (min-width: 1919.98px) {
       width: 960px;
       height: 540px;
@@ -77,13 +78,13 @@
       transition: all ease 0.5s;
       &-image {
         margin-top: 180px;
+        margin: 0 auto;
         max-width: 960px;
         @media screen and (min-width: 2781.98px) {
           margin-top: 180px;
           max-width: 1391px;
         }
       }
-
   }
 }
 
