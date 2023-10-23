@@ -9,15 +9,9 @@ interface IAppLeftIntrface {
 
 function AppLeft({stops}: IAppLeftIntrface) {
     return (
-      <div className={`app-page-left ${stops.length > 0 ? "" : "center-content"}`}>
-        {
-            stops.length > 0 ?
-            <>
-                <AppLeftHeader/>
-                <ApppLeftContent/>
-            </>
-            : <Spinner/>
-        }
+      <div className={`app-page-left`}>
+        <AppLeftHeader/>
+        <ApppLeftContent/>
       </div>
       )
 }

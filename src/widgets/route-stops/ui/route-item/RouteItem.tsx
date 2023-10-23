@@ -9,6 +9,7 @@ interface IRouteItem {
 }
 
 function RouteItem({className, topDisplayed, inMove, isLast, nameRus, nameEng, timeLeft}: IRouteItem) {
+
     return (
     <div className={`route-item ${inMove ? 'in-move' : ""}`}>
         <span className="route-item__time-left">{timeLeft}</span>

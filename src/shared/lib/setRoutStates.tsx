@@ -21,7 +21,6 @@ export const setRouteStates = (
                 const routeIcon = (JSON.parse(message.data).icon)
                 setStops(stops) 
                 setRouteIcon(routeIcon)
-                console.log(routeIcon)
             } break
             case "STOP_TIMES": {
                 const nextStop = JSON.parse(message.data).stops[0].index

@@ -21,7 +21,7 @@ function RouteStops({ inMove }: IRouteStops) {
         return <AppContext.Consumer>
             {({stops, stopsTimes, nextStop}) => {
                     try {
-                        if (count < displayedStops && i >= nextStop) {
+                        if (count < displayedStops && i >= nextStop && stopsTimes[count]) {
                             count +=1
                             return <RouteItem 
                             key={stop.nameRus}
@@ -40,15 +40,13 @@ function RouteStops({ inMove }: IRouteStops) {
             }
         </AppContext.Consumer> 
     }
-
+    const stops = []
     return (
         
         <div className="route-stops">
             <AppContext.Consumer>                        
                 {
-                    ({stops}) => {
-                        return stops.map(stop)
-                    }
+                    ({stops}) => stops.length > 0 ?  stops.map(stop) : <div className="route-item end-stop" >Конечная</div>
                 }
             </AppContext.Consumer>
         </div>
