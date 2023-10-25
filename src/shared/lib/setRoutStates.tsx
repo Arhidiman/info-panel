@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
-import { TStop } from "@/app/types/types"
+import { TStop, TFlight } from "@/app/types/types"
+
 export const setRouteStates = (
     message: any, setSpeed: Dispatch<SetStateAction<number>>, 
     setStops: Dispatch<SetStateAction<TStop[]>>, 
@@ -7,7 +8,11 @@ export const setRouteStates = (
     setNextStop: Dispatch<SetStateAction<number>>,
     setInMove: Dispatch<SetStateAction<boolean>>,
     setRouteIcon: Dispatch<SetStateAction<string>>,
-    setPlayImage: Dispatch<SetStateAction<string>>
+    setPlayImage: Dispatch<SetStateAction<string>>,
+    setVideo: Dispatch<SetStateAction<string>>,
+    setVideoLabel: Dispatch<SetStateAction<string>>,
+    setAirportContent: Dispatch<SetStateAction<TFlight[]>>,
+    setRightScreenNum: Dispatch<SetStateAction<number>>,
     ) => {
    
     if(message) {
@@ -38,7 +43,23 @@ export const setRouteStates = (
             case "PLAY_IMAGE": {
                 const playImage = JSON.parse(message.data).src
                 setPlayImage(playImage)
+                setRightScreenNum(0)
+            } break 
+            case "PLAY_VIDEO": {
+                const video = JSON.parse(message.data).src
+                const label = JSON.parse(message.data).label
+                setVideo(video)
+                setVideoLabel(label)
+                setRightScreenNum(1)
+            } break 
+            case "PULKOVO": {
+                const airportContent = JSON.parse(message.data).contents
+                setAirportContent(airportContent)
+                setRightScreenNum(2)
             } break 
         }
     }
 }
+
+// Заглушки
+//  http://192.168.100.95:8080/sdcard/content/video/media_plans/69db6abdbb7c206b9eebbb4058d52dd9.mp4 Видео

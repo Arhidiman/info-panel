@@ -5,12 +5,13 @@ export enum flightDirection {
 
 export type TFlight = {
     time: string,
-    flight: string,
     direction: string,
-    company: string,
-    airplaneType: string,
+    flightNumber: string,
     status: string
+    airline: string,
+    aircraftType: string,
 }
+
 
 export type TStop =  { 
     index: 0,
@@ -34,3 +35,4 @@ export type TStopTime = {
     index: number, 
     time: number
 }
+

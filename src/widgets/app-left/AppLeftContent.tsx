@@ -3,6 +3,7 @@ import RouteStops from "@/widgets/route-stops/ui/RouteStops"
 import TransfersInfo from "@/widgets/transfers-info/ui/TransfersInfo"
 import InfoPlate from "@/entities/info-plate/InfoPlate"
 import { AppContext } from "@/App"
+import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 function AppLeftContent() {
 
@@ -21,7 +22,18 @@ function AppLeftContent() {
     <div className="app-page-left-content">
         <AppContext.Consumer>
           {
-              ({transfers, inMove}) => !routeContent && transfers.length > 0  ?  <TransfersInfo transfers={transfers}/> : <RouteStops inMove={inMove}/>
+              ({transfers, inMove}) =>  
+                  <SwitchTransition>
+                    <CSSTransition key={inMove ? "in-move" : 'stop'} timeout={1500} classNames="fade" mountOnEnter unmountOnExit>
+                      {
+                        !routeContent && transfers.length > 0 && !inMove
+                        ? 
+                        <TransfersInfo transfers={transfers} currentContent={!routeContent && !inMove}/>
+                        :
+                        <RouteStops inMove={inMove}/>
+                      }
+                    </CSSTransition>
+                  </SwitchTransition>
           }
         </AppContext.Consumer>
         <InfoPlate/>        
