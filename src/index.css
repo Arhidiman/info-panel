@@ -25,3 +25,59 @@ table {
 border-collapse: collapse;
 }
 
+@keyframes show-up {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+  
+@keyframes fade-in {
+0% {
+    opacity: 1;
+}
+50% {
+    opacity: 0.5;
+}
+100% {
+    opacity: 0;
+    }
+}
+
+@keyframes slide-show {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+  
+@keyframes slide-hide {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+    
+}
+  
+.fade-enter-active {
+    animation: show-up 0.7s forwards;
+}
+.fade-exit-active {
+    animation: fade-in 0.7s forwards;
+}
+
+.slide-enter-active {
+    animation: slide-show 0.7s forwards;
+}
+.slide-exit-active {
+    animation: slide-hide 0.7s forwards;
+}

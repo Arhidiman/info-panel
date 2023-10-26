@@ -9,14 +9,17 @@ export const setRouteStates = (
     setInMove: Dispatch<SetStateAction<boolean>>,
     setRouteIcon: Dispatch<SetStateAction<string>>,
     setPlayImage: Dispatch<SetStateAction<string>>,
+    setPlayImageLabel: Dispatch<SetStateAction<string>>,
     setVideo: Dispatch<SetStateAction<string>>,
     setVideoLabel: Dispatch<SetStateAction<string>>,
     setAirportContent: Dispatch<SetStateAction<TFlight[]>>,
     setRightScreenNum: Dispatch<SetStateAction<number>>,
+    setVideoLength: Dispatch<SetStateAction<number>>,
     ) => {
    
     if(message) {
         const type = JSON.parse(message.data).type
+        // console.log(JSON.parse(message.data))
         switch(type) {
             case "SPEED": {
                 setSpeed(JSON.parse(message.data).speed)  
@@ -28,7 +31,6 @@ export const setRouteStates = (
                 setRouteIcon(routeIcon)
             } break
             case "STOP_TIMES": {
-                const nextStop = JSON.parse(message.data).stops[0].index
                 const stopsTimes = JSON.parse(message.data).stops
                 setStopTimes(stopsTimes)
             } break
@@ -42,15 +44,20 @@ export const setRouteStates = (
             } break 
             case "PLAY_IMAGE": {
                 const playImage = JSON.parse(message.data).src
+                const label = JSON.parse(message.data).label
+                console.log(JSON.parse(message.data))
                 setPlayImage(playImage)
+                setPlayImageLabel(label)
                 setRightScreenNum(0)
+                
             } break 
             case "PLAY_VIDEO": {
-                const video = JSON.parse(message.data).src
-                const label = JSON.parse(message.data).label
-                setVideo(video)
+                const {src, label, length} = JSON.parse(message.data)
+                setVideo(src)
                 setVideoLabel(label)
+                setVideoLength(length)
                 setRightScreenNum(1)
+
             } break 
             case "PULKOVO": {
                 const airportContent = JSON.parse(message.data).contents

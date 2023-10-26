@@ -16,15 +16,19 @@ function App() {
   const [ transfers, setTransfers] = useState([])
   const [ speed, setSpeed ] = useState(0)
   const [ stopsTimes, setStopTimes ] = useState([])
-  const [currentStop, setCurrentStop] = useState(null)
-  const [inMove, setInMove] = useState(true)
-  const [routeIcon, setRouteIcon] = useState("")
-  const [playImage, setPlayImage] = useState("")
-  const [video, setVideo] = useState("")
-  const [videoLabel, setVideoLabel] = useState("")
-  const [airportContent, setAirportContent] = useState([])
-  const [rightScreenNum, setRightScreenNum] = useState(0) //0 - картинка(лого метро); 1 - видео; 2 - прилёты/вылеты
-  const [isVideoEnded, setIsVideoEnded] = useState(false)
+  const [ currentStop, setCurrentStop ] = useState(null)
+  const [ inMove, setInMove ] = useState(true)
+  const [ routeIcon, setRouteIcon ] = useState("")
+  const [ playImage, setPlayImage ] = useState("")
+  const [ video, setVideo ] = useState("")
+  const [ airportContent, setAirportContent ] = useState([])
+  const [ rightScreenNum, setRightScreenNum ] = useState(0) //0 - картинка(лого метро); 1 - видео; 2 - прилёты/вылеты
+  const [ isVideoEnded, setIsVideoEnded ] = useState(false)
+  const [ videoLength, setVideoLength ] = useState(0)
+  const [ error, setError ] = useState()
+  const [ videoLabel, setVideoLabel ] = useState("video label")
+  const [ playImageLabel, setPlayImageLabel ] =useState("")
+  const [ labelToSend, setLabelToSend ] =useState("")
 
   useEffect(() => {
     setRouteStates(
@@ -36,16 +40,17 @@ function App() {
       setInMove, 
       setRouteIcon, 
       setPlayImage, 
+      setPlayImageLabel,
       setVideoLabel,
       setVideo, 
       setAirportContent, 
       setRightScreenNum,
+      setVideoLength,
     )
   }, [lastMessage]);
 
   useEffect(() => {
     if(stops.length > 0 && stops[nextStop]) {
-      // setTransfers(stops[nextStop].transfers) 
       setTransfers(stops[nextStop].transfers) 
       setCurrentStop(stops[nextStop - 1])
     }
@@ -54,9 +59,17 @@ function App() {
   useEffect(() => {
     if(isVideoEnded) {
       // sendMessage(JSON.stringify({type: "COMPLETE", label: videoLabel})) //отправка сообщения после окончания проигрывания видео
-      // setIsVideoEnded(false)
+      setIsVideoEnded(false)
     } 
   }, [isVideoEnded])
+
+  useEffect(() => {
+    console.log(error, labelToSend)
+    if(error && labelToSend) {
+      // sendMessage(JSON.stringify({type: "ERROR", label: labelToSend})) //отправка ошибки проигрывания контента
+      setIsVideoEnded(false)
+    } 
+  }, [error, labelToSend])
 
   return (
     <div className="app-page">
@@ -72,9 +85,15 @@ function App() {
             inMove, 
             routeIcon, 
             playImage, 
-            video, 
+            playImageLabel,
+            video,
+            videoLabel,
             airportContent, 
             rightScreenNum,
+            setVideoLabel,
+            setIsVideoEnded,
+            setLabelToSend,
+            setError
           }
       }>
         <AppLeft stops={stops}/>
