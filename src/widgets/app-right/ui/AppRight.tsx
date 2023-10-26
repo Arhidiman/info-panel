@@ -1,38 +1,20 @@
 import { useEffect, useState, useContext, ReactEventHandler, SyntheticEvent } from "react"
-import contentTemplate from "@/app//images/content-template.png"
-import FlightsInfo from "@/widgets/flights-info/ui/FlightsInfo"
-import { srcBaseUrl } from "@/shared/constants/urls"
-import VideoComponent from "@/entities/video-component/VideoComponent"
 import { AppContext } from "@/App"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
+import RightScreens from "@/widgets/right-screens/ui/RightScreens"
 
 function AppRight() {
 
     const [iscreenInterval, setScreenInterval] = useState(null)
     const [screenNum, setScreenNum] = useState(0)
-    const { inMove, playImage, video, playImageLabel, setError, setLabelToSend } = useContext(AppContext)
-
-    const setImageError = (e: SyntheticEvent<HTMLImageElement>) => {
-      setError(e)
-      setLabelToSend(playImageLabel)
-    } 
-
-    const screens = (playImageLink: string, videoLink: string) => [
-        <img onError={setImageError} onLoad={() =>console.log("loaded")} className="app-page-right-image" src={srcBaseUrl+playImageLink} alt="currnet place content"/>,
-        <VideoComponent className="app-page-right-video" src={srcBaseUrl+videoLink}/>,
-        <FlightsInfo/>,
-    ]
+    const [screensTotal, setScreesTotal] = useState(3)
  
     useEffect(() => {
-      // console.log(screenNum)
-      const screensTotal = screens.length
       const interval = setTimeout(() => {
-
-        if(screenNum === screensTotal) {
+        if(screenNum === screensTotal - 1) {
           setScreenNum(0)
         } else setScreenNum(screenNum + 1)
-      },15000)
-
+      },10000)
       setScreenInterval(interval)
       return () => clearInterval(interval)
     }, [screenNum])
@@ -40,12 +22,9 @@ function AppRight() {
     return (
       <SwitchTransition>
         <CSSTransition key={screenNum} timeout={700} classNames="fade" mountOnEnter unmountOnExit>
-          {
-              () => <div className="app-page-right">
-              {screens(playImage, video)[1]}
+              <div className="app-page-right">
+                <RightScreens screenNum={screenNum}/>
               </div>
-          // значение key inMove заменить на другое, которое будет меняться вместе с контентом справа, а не слева
-          }
         </CSSTransition>
       </SwitchTransition>
   )
