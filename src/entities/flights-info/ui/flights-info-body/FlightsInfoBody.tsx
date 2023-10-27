@@ -5,11 +5,7 @@ import { useState, useEffect } from "react"
 import { getPaginationArray } from "@/shared/lib/getPaginationArray"
 import FlightTableRow from "../flights-table-row/FlightsTableRow"
 
-interface TFlightsInfo {
-    type?: flightDirection
-}
-
-function FlightsInfoBody({ type=flightDirection.departures }: TFlightsInfo) {
+function FlightsInfoBody() {
     
     const [ currentPage, setCurrentPage ] = useState(0)
     const [ pageInterval, setPageInterval ] = useState(null)

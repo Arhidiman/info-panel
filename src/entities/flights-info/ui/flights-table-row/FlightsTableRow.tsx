@@ -1,4 +1,3 @@
-
 import { TFlight } from "@/app/types/types"
 import { getFlightStatusClass } from "@/entities/flights-info/lib/getFlightStatusClass"
 

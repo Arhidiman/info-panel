@@ -26,7 +26,7 @@ function AppLeftContent() {
                 {
                   !routeContent && transfers.length > 0 && !inMove
                   ? 
-                  <TransfersInfo transfers={transfers} currentContent={!routeContent && !inMove}/>
+                  <TransfersInfo transfers={transfers}/>
                   :
                   <RouteStops inMove={inMove}/>
                 }

@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, ReactEventHandler, SyntheticEvent } from "react"
+import { useContext, SyntheticEvent } from "react"
 import FlightsInfo from "@/entities/flights-info/ui/FlightsInfo"
 import { srcBaseUrl } from "@/shared/constants/urls"
 import VideoComponent from "@/entities/video-component/VideoComponent"
@@ -11,7 +11,7 @@ interface IRightScreens {
 
 function RightScreens({ screenNum } : IRightScreens) {
 
-    const { playImage, video, playImageLabel, streamUrl, setError, setLabelToSend } = useContext(AppContext)
+    const { playImage, video, streamUrl, playImageLabel, setError, setLabelToSend } = useContext(AppContext)
 
     const setImageError = (e: SyntheticEvent<HTMLImageElement>) => {
       setError(e)
@@ -23,14 +23,14 @@ function RightScreens({ screenNum } : IRightScreens) {
 
     const screens = (playImageLink: string, videoUrl: string, streamUrl: string) => [
         <img onError={setImageError}className="app-page-right-image" src={srcBaseUrl+playImageLink} alt="current place content"/>,
-        <VideoComponent className="app-page-right-video" type="video" src={mockVideo}/>,
+        <VideoComponent className="app-page-right-video" type="video" src={videoUrl}/>,
         <FlightsInfo/>,
         <Ticker/>,
-        <VideoComponent className="app-page-right-stream" type="stream" src={mockStream}/>,
+        <VideoComponent className="app-page-right-stream" type="stream" src={streamUrl}/>,
     ]
  
     return ( 
-        screens(playImage, mockVideo, streamUrl)[screenNum]
+        screens(playImage, mockVideo, mockStream)[screenNum]
     )
 }
 
