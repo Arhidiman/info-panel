@@ -3,20 +3,17 @@ import { AppContext } from "@/App"
 
 interface IVideoComponent {
     className: string,
-    src: string
+    src: string,
+    type: "video" | "stream"
 }
 
-const video = "http://192.168.100.95:8080/sdcard/content/video/media_plans/69db6abdbb7c206b9eebbb4058d52dd9.mp4"
+function VideoComponent({src, className, type}: IVideoComponent) {
 
-function VideoComponent({src, className}: IVideoComponent) {
-
-  const {setIsVideoEnded, setError, setLabelToSend, videoLabel} = useContext(AppContext)  
-  const [ videoLength, setVideoLength ] = useState(5000)  //заглушка, данные берутся из веб-сокета
+  const {setIsVideoEnded, setError, setLabelToSend, videoLabel, videoLength, rightScreenNum} = useContext(AppContext)  
   const [ videoPlaying, setVideoPlaying] = useState(false)
   const [ timeout, setVideoTimeout ] = useState(null)
 
   const setVideoError = (e: SyntheticEvent<HTMLVideoElement>) => {
-    console.log(e)
     setError(e)
     setLabelToSend(videoLabel)
   } 
@@ -33,8 +30,12 @@ function VideoComponent({src, className}: IVideoComponent) {
   const setStartVideo = () => setVideoPlaying(true)
 
   return (
+      type === "stream"  
+      ? 
+      <iframe className={className} src={src} title="YouTube video player" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+      :
       <video className={className} muted autoPlay={true} onPlay={setStartVideo} onError={setVideoError}>
-        <source src={video} type="video/mp4"/>
+        <source src={src} type="video/mp4"/>
       </video>
   )
 }

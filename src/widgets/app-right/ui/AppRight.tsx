@@ -6,14 +6,14 @@ function AppRight() {
 
     const [screenInterval, setScreenInterval] = useState(null)
     const [screenNum, setScreenNum] = useState(0)
-    const [screensTotal, setScreesTotal] = useState(4)
-    console.log(RightScreens.length)
+    const [screensTotal, setScreesTotal] = useState(5)
+
     useEffect(() => {
       const interval = setTimeout(() => {
         if(screenNum === screensTotal - 1) {
           setScreenNum(0)
         } else setScreenNum(screenNum + 1)
-      },7000)
+      },10000)
       setScreenInterval(interval)
       return () => clearInterval(interval)
     }, [screenNum])

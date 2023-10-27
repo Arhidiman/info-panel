@@ -32,7 +32,6 @@ function App() {
   const [ tickerText, setTickerText ] = useState("")
   const [ streamUrl, setStreamUrl ] = useState("")
 
-
   useEffect(() => {
     setRouteStates(
       lastMessage, 
@@ -69,7 +68,6 @@ function App() {
   }, [isVideoEnded])
 
   useEffect(() => {
-    console.log(error, labelToSend)
     if(error && labelToSend) {
       // sendMessage(JSON.stringify({type: "ERROR", label: labelToSend})) //отправка ошибки проигрывания контента
       setIsVideoEnded(false)
@@ -92,6 +90,7 @@ function App() {
             playImage, 
             playImageLabel,
             video,
+            videoLength,
             videoLabel,
             airportContent, 
             rightScreenNum,

@@ -14,11 +14,13 @@ color: #001914;
 }
 
 :root {
+/* скролбар */
 --scrollbarBgColor: #ffffff;
 --scrollbarThumbColor: #969696;
 --scrollbarWidth: 12px;
 --scrollbarBorder: 0 solid var(--scrollbarBgColor);
 --scrollbarBorderRadius: 30px;
+/* цвета */
 }
 
 table {

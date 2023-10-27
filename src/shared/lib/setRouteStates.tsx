@@ -21,7 +21,6 @@ export const setRouteStates = (
    
     if(message) {
         const type = JSON.parse(message.data).type
-        // console.log(JSON.parse(message.data))
         switch(type) {
             case "SPEED": {
                 setSpeed(JSON.parse(message.data).speed)  
@@ -47,7 +46,6 @@ export const setRouteStates = (
             case "PLAY_IMAGE": {
                 const playImage = JSON.parse(message.data).src
                 const label = JSON.parse(message.data).label
-                console.log(JSON.parse(message.data))
                 setPlayImage(playImage)
                 setPlayImageLabel(label)
                 setRightScreenNum(0)

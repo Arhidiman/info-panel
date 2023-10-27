@@ -15,12 +15,15 @@ function Ticker() {
     }, [ticker])
 
     useEffect(() => {
-        ticker.current.animate([
-            { transform: `translateX(-${tickerWidth+2000}px)` }
-          ], {
-            duration: tickerWidth/tickerSpeed,
-            iterations: Infinity
-          })
+        ticker.current.animate(
+            [
+                { transform: `translateX(-${tickerWidth+2000}px)` }
+            ], 
+            {
+                duration: tickerWidth/tickerSpeed,
+                iterations: Infinity
+            }
+        )
     }, [tickerWidth])
 
     return (

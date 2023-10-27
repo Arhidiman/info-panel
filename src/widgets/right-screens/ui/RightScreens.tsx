@@ -18,17 +18,19 @@ function RightScreens({ screenNum } : IRightScreens) {
       setLabelToSend(playImageLabel)
     } 
 
-    const screens = (playImageLink: string, videoLink: string) => [
-        <img onError={setImageError}className="app-page-right-image" src={srcBaseUrl+playImageLink} alt="currnet place content"/>,
-        <VideoComponent className="app-page-right-video" src={srcBaseUrl+videoLink}/>,
+    const mockStream = "https://www.youtube.com/embed/QxtigSvGnD8?si=ySkC7y5nDqo5vFTb?autoplay=1&mute=1"
+    const mockVideo = "http://192.168.100.95:8080/sdcard/content/video/media_plans/69db6abdbb7c206b9eebbb4058d52dd9.mp4"
+
+    const screens = (playImageLink: string, videoUrl: string, streamUrl: string) => [
+        <img onError={setImageError}className="app-page-right-image" src={srcBaseUrl+playImageLink} alt="current place content"/>,
+        <VideoComponent className="app-page-right-video" type="video" src={mockVideo}/>,
         <FlightsInfo/>,
         <Ticker/>,
-        <VideoComponent className="app-page-right-video" src={srcBaseUrl+streamUrl}/>,
-
+        <VideoComponent className="app-page-right-stream" type="stream" src={mockStream}/>,
     ]
  
     return ( 
-        screens(playImage, video)[screenNum]
+        screens(playImage, mockVideo, streamUrl)[screenNum]
     )
 }
 
