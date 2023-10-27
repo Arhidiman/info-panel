@@ -4,7 +4,7 @@ import AppRight from '@/widgets/app-right/ui/AppRight'
 import { useState, useEffect } from "react"
 import { createContext } from "react"
 import useWebSocket from 'react-use-websocket';
-import { setRouteStates } from '@/shared/lib/setRoutStates'
+import { setRouteStates } from '@/shared/lib/setRouteStates'
 import { wsUrl } from '@/shared/constants/urls'
 export const AppContext = createContext(null)
 
@@ -22,13 +22,16 @@ function App() {
   const [ playImage, setPlayImage ] = useState("")
   const [ video, setVideo ] = useState("")
   const [ airportContent, setAirportContent ] = useState([])
-  const [ rightScreenNum, setRightScreenNum ] = useState(0) //0 - картинка(лого метро); 1 - видео; 2 - прилёты/вылеты
+  const [ rightScreenNum, setRightScreenNum ] = useState(0) //0 - картинка(лого метро); 1 - видео; 2 - прилёты/вылеты; 3 - бегущая строка
   const [ isVideoEnded, setIsVideoEnded ] = useState(false)
   const [ videoLength, setVideoLength ] = useState(0)
   const [ error, setError ] = useState()
   const [ videoLabel, setVideoLabel ] = useState("video label")
-  const [ playImageLabel, setPlayImageLabel ] =useState("")
-  const [ labelToSend, setLabelToSend ] =useState("")
+  const [ playImageLabel, setPlayImageLabel ] = useState("")
+  const [ labelToSend, setLabelToSend ] = useState("")
+  const [ tickerText, setTickerText ] = useState("")
+  const [ streamUrl, setStreamUrl ] = useState("")
+
 
   useEffect(() => {
     setRouteStates(
@@ -46,6 +49,8 @@ function App() {
       setAirportContent, 
       setRightScreenNum,
       setVideoLength,
+      setTickerText,
+      setStreamUrl
     )
   }, [lastMessage]);
 
@@ -90,13 +95,15 @@ function App() {
             videoLabel,
             airportContent, 
             rightScreenNum,
+            tickerText,
+            streamUrl,
             setVideoLabel,
             setIsVideoEnded,
             setLabelToSend,
             setError
           }
       }>
-        <AppLeft stops={stops}/>
+        <AppLeft/>
         <AppRight/> 
       </AppContext.Provider>
     </div>

@@ -15,6 +15,8 @@ export const setRouteStates = (
     setAirportContent: Dispatch<SetStateAction<TFlight[]>>,
     setRightScreenNum: Dispatch<SetStateAction<number>>,
     setVideoLength: Dispatch<SetStateAction<number>>,
+    setTickerText: Dispatch<SetStateAction<string>>,
+    setStreamUrl: Dispatch<SetStateAction<string>>,
     ) => {
    
     if(message) {
@@ -59,14 +61,19 @@ export const setRouteStates = (
                 setRightScreenNum(1)
 
             } break 
-            case "PULKOVO": {
-                const airportContent = JSON.parse(message.data).contents
-                setAirportContent(airportContent)
-                setRightScreenNum(2)
+
+            case "PLAY_STREAM": {
+                const streamUrl = JSON.parse(message.data).url
+                setStreamUrl(streamUrl)
+                setRightScreenNum(3)
             } break 
+            case "PLAY_TICKER": {
+                const tickerText = JSON.parse(message.data).text
+                setTickerText(tickerText)
+                setRightScreenNum(4)
+            } break 
+
         }
     }
 }
 
-// Заглушки
-//  http://192.168.100.95:8080/sdcard/content/video/media_plans/69db6abdbb7c206b9eebbb4058d52dd9.mp4 Видео

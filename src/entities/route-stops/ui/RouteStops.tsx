@@ -24,15 +24,16 @@ function RouteStops({ inMove }: IRouteStops) {
             if (count < displayedStops && i >= nextStop && stopsTimes[count]) {
                 count +=1
                 return <RouteItem 
-                key={stop.nameRus}
-                topDisplayed={count === 1}
-                className={count === displayedStops ? 'line-fade' : ""}
-                inMove={inMove}
-                isLast={i === stops.length - 1}
-                nameRus={stop.nameRus} 
-                nameEng={stop.nameEng} 
-                timeLeft={stopsTimes[count-1].time}
-            />}
+                    key={stop.nameRus}
+                    topDisplayed={count === 1}
+                    className={count === displayedStops ? 'line-fade' : ""}
+                    inMove={inMove}
+                    isLast={i === stops.length - 1}
+                    nameRus={stop.nameRus} 
+                    nameEng={stop.nameEng} 
+                    timeLeft={stopsTimes[count-1].time}
+                />
+            }
         } catch(error) {
             console.log(error, count, nextStop, stop, displayedStops)
         }
