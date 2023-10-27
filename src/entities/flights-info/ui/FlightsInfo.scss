@@ -18,7 +18,7 @@
         font-weight: 700;
         line-height: 26px;
         letter-spacing: 0em;
-        color: #334743;
+        color: var(--dark-green);
         @media screen and (min-width: 2781.98px) {
             font-size: 34px;
         } 
@@ -31,7 +31,7 @@
                 width: 104px;
                 padding: 6px 0;
                 text-align: center;
-                background: #B6E5FF;
+                background: var(--blue);
                 @media screen and (min-width: 2781.98px) {
                     width: 134px;
                     padding: 10px 0;
@@ -48,10 +48,10 @@
                 }
             }
             &.time, &.direction, &.company, &.airplane, &.status {
-                color: #001914
+                color: var(--black-green)
             }
             &.flight {
-                color: #000000;
+                color: var(--black);
             }
             &.direction {
                 text-align: left;
@@ -87,14 +87,14 @@
                     line-height: 1.2;
                 }
                 &.delayed {
-                    background: #FFCBCB;
+                    background: var(--pink);
                 }
                 &.arrived {
-                    background: #C9FFD5;
+                    background: var(--green);
                 }
             }
             &.names {
-                color: #334743;
+                color: var(--dark-green);
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 20px;
@@ -103,7 +103,7 @@
         }
     }
     &__table-top {
-        border-bottom: solid #334743 2px;
+        border-bottom: solid var(--dark-green) 2px;
         &-cell {
             padding-bottom: 16px;
             text-align: center;
@@ -111,7 +111,7 @@
             font-weight: 500;
             line-height: 20px;
             letter-spacing: 0em;
-            color: #334743;
+            color: var(--dark-green);
             @media screen and (min-width: 2781.98px) {
                 font-size: 28px;
             }
@@ -129,7 +129,7 @@
 .table-row {
     height: 61px;
     width: 100%;
-    border-bottom: solid #D9D9D9 1px;
+    border-bottom: solid var(--light-grey) 1px;
     @media screen and (min-width: 2781.98px) {
         height: 88px;
     }

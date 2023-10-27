@@ -22,18 +22,18 @@
             width: 20px;
             height: 20px;
             border-radius: 10000px;
-            background: #B6E5FF;
+            background: var(--blue);
         }
         &_top {
             height: 40%;
-            border-left: solid #D9D9D9 2px;
+            border-left: solid var(--light-grey) 2px;
         }
         &_bottom {
             height: 40%;
-            border-left: solid #D9D9D9 2px;
+            border-left: solid var(--light-grey) 2px;
             &.line-fade {
                 border-left: solid 2px;
-                border-image-source: linear-gradient(#D9D9D9, transparent);
+                border-image-source: linear-gradient(var(--light-grey), transparent);
                 border-image-slice: 1;
             }
             &.last-stop {
@@ -51,7 +51,7 @@
         line-height: 32px;
         letter-spacing: 0em;
         text-align: left;
-        color: #403939;
+        color: var(--dark-grey);
         &::after {
             content: "мин";
             font-weight: 500;
@@ -65,7 +65,7 @@
             width: 70%;
             padding: 10px 16px;
             &.selected {
-                background: #B6E5FF;;
+                background: var(--blue);;
             }
         }
         &_ru {
@@ -98,7 +98,7 @@
         line-height: 24px;
         letter-spacing: 0em;
         text-align: left;
-        color: #001914;
+        color: var(--black-green);
         @media screen and (min-width: 2781.98px) {
           font-size: 32px;
         }

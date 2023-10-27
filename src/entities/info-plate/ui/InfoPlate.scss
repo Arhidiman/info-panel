@@ -6,15 +6,15 @@
     right: 24px;
     justify-content: space-around;
     padding: 6px 24px;
-    background: #D1D1D1;
-    border: solid lightgray 1px;
+    background: var(--grey);
+    border: solid var(--dark-grey) 1px;
     border-radius: 2px;
     text-align: left;
     font-size: 18px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: 0em;
-    color: #3E3A6B;
+    color: var(--violet);
     &-wrapper {
         display: inline;
         float:right

@@ -4,27 +4,38 @@
 } 
   
 html, body, div, span, h1, h2, h3, p, ul, li {
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-font-family: PT Root UI ;
-color: #001914;
+    font-family: PT Root UI ;
+    color: #001914;
 }
 
 :root {
-/* скролбар */
---scrollbarBgColor: #ffffff;
---scrollbarThumbColor: #969696;
---scrollbarWidth: 12px;
---scrollbarBorder: 0 solid var(--scrollbarBgColor);
---scrollbarBorderRadius: 30px;
-/* цвета */
+    /* скролбар */
+    --scrollbarBgColor: #ffffff;
+    --scrollbarThumbColor: #969696;
+    --scrollbarWidth: 12px;
+    --scrollbarBorder: 0 solid var(--scrollbarBgColor);
+    --scrollbarBorderRadius: 30px;
+    /* цвета */
+    --blue: #B6E5FF;
+    --light-grey: #D9D9D9;
+    --grey: #bdbdbd;
+    --dark-grey: #403939;
+    --light-green: #C9FFD5;
+    --dark-green: #334743;
+    --black-green: #001914;
+    --black: #000000;
+    --white: #ffffff;
+    --pink: #FFCBCB;
+    --violet: #3E3A6B; 
 }
 
 table {
-border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 @keyframes show-up {
@@ -40,15 +51,15 @@ border-collapse: collapse;
 }
   
 @keyframes fade-in {
-0% {
-    opacity: 1;
-}
-50% {
-    opacity: 0.5;
-}
-100% {
-    opacity: 0;
+    0% {
+        opacity: 1;
     }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        }
 }
 
 @keyframes slide-show {
