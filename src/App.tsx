@@ -1,5 +1,5 @@
 import '@/App.scss'
-import AppLeft from '@/widgets/app-left/AppLeft'
+import AppLeft from '@/widgets/app-left/ui/AppLeft'
 import AppRight from '@/widgets/app-right/ui/AppRight'
 import { useState, useEffect } from "react"
 import { createContext } from "react"

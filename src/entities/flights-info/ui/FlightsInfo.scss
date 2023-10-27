@@ -26,7 +26,6 @@
     &__table {
         width: 100%;
         &-cell {
-            color: #334743;
             &-selected {
                 display: inline-block;
                 width: 104px;
@@ -93,6 +92,13 @@
                 &.arrived {
                     background: #C9FFD5;
                 }
+            }
+            &.names {
+                color: #334743;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 20px;
+                letter-spacing: 0em;
             }
         }
     }

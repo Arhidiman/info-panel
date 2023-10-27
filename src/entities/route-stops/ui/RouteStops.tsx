@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react"
 import "./RouteStops.scss"
-import RouteItem from "@/widgets/route-stops/ui/route-item/RouteItem"
+import RouteItem from "./route-item/RouteItem"
 import { TStop } from "@/app/types/types"
 import { AppContext } from "@/App"
 
@@ -38,7 +38,6 @@ function RouteStops({ inMove }: IRouteStops) {
         }
     }
     return (
-        
         <div className="route-stops">
             <AppContext.Consumer>                        
                 {
@@ -46,7 +45,6 @@ function RouteStops({ inMove }: IRouteStops) {
                 }
             </AppContext.Consumer>
         </div>
-        
     )
 }
 

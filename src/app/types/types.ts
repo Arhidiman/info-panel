@@ -12,7 +12,6 @@ export type TFlight = {
     aircraftType: string,
 }
 
-
 export type TStop =  { 
     index: 0,
     iconsBefore: [],

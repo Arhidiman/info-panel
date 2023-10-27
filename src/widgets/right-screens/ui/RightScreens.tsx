@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext, ReactEventHandler, SyntheticEvent } from "react"
-import FlightsInfo from "@/widgets/flights-info/ui/FlightsInfo"
+import FlightsInfo from "@/entities/flights-info/ui/FlightsInfo"
 import { srcBaseUrl } from "@/shared/constants/urls"
 import VideoComponent from "@/entities/video-component/VideoComponent"
 import { AppContext } from "@/App"

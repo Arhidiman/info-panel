@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react"
-import RouteStops from "@/widgets/route-stops/ui/RouteStops"
-import TransfersInfo from "@/widgets/transfers-info/ui/TransfersInfo"
-import InfoPlate from "@/entities/info-plate/InfoPlate"
+import RouteStops from "@/entities/route-stops/ui/RouteStops"
+import TransfersInfo from "@/entities/transfers-info/ui/TransfersInfo"
+import InfoPlate from "@/entities/info-plate/ui/InfoPlate"
 import { AppContext } from "@/App"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 
