@@ -1,9 +1,10 @@
-import { useContext, SyntheticEvent } from "react"
+import { SyntheticEvent } from "react"
 import FlightsInfo from "@/entities/flights-info/ui/FlightsInfo"
 import { srcBaseUrl } from "@/shared/constants/urls"
 import VideoComponent from "@/entities/video-component/VideoComponent"
-import { AppContext } from "@/App"
 import Ticker from "@/entities/ticker/ui/Ticker"
+import useAppContext from "@/app/hooks/useAppContext"
+
 
 interface IRightScreens {
     screenNum: number
@@ -11,7 +12,7 @@ interface IRightScreens {
 
 function RightScreens({ screenNum } : IRightScreens) {
 
-    const { playImage, video, streamUrl, playImageLabel, setError, setLabelToSend } = useContext(AppContext)
+    const { playImage, video, streamUrl, playImageLabel, setError, setLabelToSend } = useAppContext()
 
     const setImageError = (e: SyntheticEvent<HTMLImageElement>) => {
       setError(e)

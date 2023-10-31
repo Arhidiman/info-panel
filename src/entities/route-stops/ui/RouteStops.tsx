@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from "react"
+import { useState, useEffect } from "react"
 import "./RouteStops.scss"
 import RouteItem from "./route-item/RouteItem"
 import { TStop } from "@/app/types/types"
-import { AppContext } from "@/App"
+import useAppContext from "@/app/hooks/useAppContext"
 
 interface IRouteStops {
     inMove: boolean
@@ -17,7 +17,7 @@ function RouteStops({ inMove }: IRouteStops) {
         inMove ? setDisplayedStops(4) : setDisplayedStops(3) 
     }, [inMove])
 
-    const { stops, stopsTimes, nextStop } = useContext(AppContext)
+    const { stops, stopsTimes, nextStop } = useAppContext()
 
     const stop = (stop: TStop, i: number) => {
         try {
@@ -40,11 +40,9 @@ function RouteStops({ inMove }: IRouteStops) {
     }
     return (
         <div className="route-stops">
-            <AppContext.Consumer>                        
                 {
-                    ({stops}) => stops.length > 0 ?  stops.map(stop) : <div className="route-item end-stop" >Конечная</div>
+                    stops.length > 0 ?  stops.map(stop) : <div className="route-item end-stop" >Конечная</div>
                 }
-            </AppContext.Consumer>
         </div>
     )
 }

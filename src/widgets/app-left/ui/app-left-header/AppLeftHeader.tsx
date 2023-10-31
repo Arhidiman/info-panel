@@ -1,13 +1,10 @@
-import { AppContext } from "@/App"
 import HeaderWhenStoppingContent from "./header-when-stopping-content/HeaderInMoveContent"
 import HeaderInMoveContent from "./header-in-move-content/HeaderWhenStoppingContent"
-import { useContext } from "react"
+import useAppContext from "@/app/hooks/useAppContext"
 
 function AppLeftHeader() {
 
-    const { currentStop, inMove} = useContext(AppContext)
-
-
+    const { currentStop, inMove} = useAppContext()
     console.log(inMove)
 
     return (

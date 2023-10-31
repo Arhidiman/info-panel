@@ -1,9 +1,8 @@
-import { AppContext } from "@/App"
-import { useContext } from "react"
+import useAppContext from "@/app/hooks/useAppContext"
 
 function HeaderInMoveContent() {
 
-    const { currentStop } = useContext(AppContext)
+    const { currentStop } = useAppContext()
 
     return (
         <>

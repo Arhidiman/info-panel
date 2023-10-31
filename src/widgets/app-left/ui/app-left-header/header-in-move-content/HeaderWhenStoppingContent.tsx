@@ -1,10 +1,9 @@
-import { AppContext } from "@/App"
 import { srcBaseUrl } from "@/shared/constants/urls"
-import { useContext } from "react"
+import useAppContext from "@/app/hooks/useAppContext"
 
 function HeaderWhenStoppingContent() {
 
-    const { routeIcon } = useContext(AppContext)
+    const { routeIcon } = useAppContext()
 
     return (
         <>

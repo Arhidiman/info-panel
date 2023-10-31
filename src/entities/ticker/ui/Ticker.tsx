@@ -1,14 +1,14 @@
 import "./Ticker.scss"
-import { useContext } from "react"
-import { AppContext } from "@/App"
 import { useState, useEffect, useRef } from "react"
+import useAppContext from "@/app/hooks/useAppContext"
+
 
 function Ticker() {
 
     const [ tickerWidth, setTickerWidth] = useState(0)
     const [ tickerSpeed, setTickerSpeed] = useState(0.3)
     const ticker = useRef<HTMLParagraphElement>() 
-    const { tickerText } = useContext(AppContext) //Пока стоит заглушка
+    const { tickerText } = useAppContext() //Пока стоит заглушка
 
     useEffect(() => {
         setTickerWidth(ticker.current.scrollWidth)

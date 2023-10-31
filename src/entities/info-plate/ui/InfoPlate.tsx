@@ -1,15 +1,15 @@
 import "./InfoPlate.scss"
-import { useState, useEffect, useContext } from "react"
+import { useState, useEffect } from "react"
 import { getCurrentDate } from "@/entities/info-plate/lib/getCurrentDate"
 import { getCurrentTime } from "@/entities/info-plate/lib/getCurrentTime"
-import { AppContext } from "@/App"
+import useAppContext from "@/app/hooks/useAppContext"
 
 function InfoPlate() {
 
     const [currentTime, setCurrentTime] = useState(null)
     const [currentDate, setCurrentDate] = useState(null)
     const [currentTimeInterval, setCurrentTimeInterval] = useState(null)
-    const { speed } = useContext(AppContext)
+    const { speed } = useAppContext()
 
     useEffect(() => {
         setCurrentDate(getCurrentDate())

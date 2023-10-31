@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext, SyntheticEvent } from "react"
-import { AppContext } from "@/App"
+import { useState, useEffect, SyntheticEvent } from "react"
+import useAppContext from "@/app/hooks/useAppContext"
 
 interface IVideoComponent {
     className: string,
@@ -9,7 +9,7 @@ interface IVideoComponent {
 
 function VideoComponent({src, className, type}: IVideoComponent) {
 
-  const {setIsVideoEnded, setError, setLabelToSend, videoLabel, videoLength, rightScreenNum} = useContext(AppContext)  
+  const {setIsVideoEnded, setError, setLabelToSend, videoLabel, videoLength, rightScreenNum} = useAppContext() 
   const [ videoPlaying, setVideoPlaying] = useState(false)
   const [ timeout, setVideoTimeout ] = useState(null)
 

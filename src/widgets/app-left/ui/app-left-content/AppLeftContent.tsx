@@ -1,15 +1,16 @@
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useState } from "react"
 import RouteStops from "@/entities/route-stops/ui/RouteStops"
 import TransfersInfo from "@/entities/transfers-info/ui/TransfersInfo"
 import InfoPlate from "@/entities/info-plate/ui/InfoPlate"
-import { AppContext } from "@/App"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
+import useAppContext from "@/app/hooks/useAppContext"
+
 
 function AppLeftContent() {
 
     const [ routeContent, setRouteContent ] = useState(false)
     const [ interval, setContentInterval ] = useState(null)
-    const { transfers, inMove} = useContext(AppContext)
+    const { transfers, inMove} = useAppContext()
     
     useEffect(() => {
       const interval = setTimeout(() => {
