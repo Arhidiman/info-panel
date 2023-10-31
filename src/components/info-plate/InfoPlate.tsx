@@ -1,8 +1,8 @@
-import "./InfoPlate.scss"
 import { useState, useEffect } from "react"
 import { getCurrentDate } from "@/lib/getCurrentDate"
 import { getCurrentTime } from "@/lib/getCurrentTime"
 import useAppContext from "@/hooks/useAppContext"
+import "./InfoPlate.scss"
 
 function InfoPlate() {
 

@@ -1,7 +1,6 @@
-import "./Ticker.scss"
 import { useState, useEffect, useRef } from "react"
 import useAppContext from "@/hooks/useAppContext"
-
+import "./Ticker.scss"
 
 function Ticker() {
 

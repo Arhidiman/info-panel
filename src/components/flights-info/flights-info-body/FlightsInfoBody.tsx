@@ -1,9 +1,9 @@
-import { airportData } from "@/mock-data/airport" //заглушка
-import { flightDirection, TFlight } from "@/types/types"
-import { SwitchTransition, CSSTransition } from "react-transition-group"
 import { useState, useEffect } from "react"
+import { SwitchTransition, CSSTransition } from "react-transition-group"
 import { getPaginationArray } from "@/lib/getPaginationArray"
-import FlightTableRow from "../flights-table-row/FlightsTableRow"
+import FlightTableRow from "@/components/flights-info/flights-table-row/FlightsTableRow"
+import { TFlight } from "@/types/types"
+import { airportData } from "@/mock-data/airport" //заглушка
 
 function FlightsInfoBody() {
     

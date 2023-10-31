@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
+import { CSSTransition, SwitchTransition } from "react-transition-group"
+import useAppContext from "@/hooks/useAppContext"
 import RouteStops from "@/components/route-stops/RouteStops"
 import TransfersInfo from "@/components/transfers-info/TransfersInfo"
 import InfoPlate from "@/components/info-plate/InfoPlate"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
-import useAppContext from "@/hooks/useAppContext"
 
 function AppLeftContent() {
 

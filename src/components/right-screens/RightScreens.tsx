@@ -1,10 +1,9 @@
 import { SyntheticEvent } from "react"
-import FlightsInfo from "@/components/flights-info/FlightsInfo"
-import { srcBaseUrl } from "@/constants/urls"
+import useAppContext from "@/hooks/useAppContext"
 import VideoComponent from "@/components/video-component/VideoComponent"
 import Ticker from "@/components/ticker/Ticker"
-import useAppContext from "@/hooks/useAppContext"
-
+import FlightsInfo from "@/components/flights-info/FlightsInfo"
+import { srcBaseUrl } from "@/constants/urls"
 
 interface IRightScreens {
     screenNum: number

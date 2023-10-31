@@ -1,6 +1,6 @@
-import "./FlightsInfo.scss"
 import FlightsInfoHeader from "./flights-info-header/FlightsInfoHeader"
 import FlightsInfoBody from "./flights-info-body/FlightsInfoBody"
+import "./FlightsInfo.scss"
 
 function FlightsInfo() {
     return (

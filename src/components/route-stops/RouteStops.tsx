@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import "./RouteStops.scss"
+import useAppContext from "@/hooks/useAppContext"
 import RouteItem from "./route-item/RouteItem"
 import { TStop } from "@/types/types"
-import useAppContext from "@/hooks/useAppContext"
+import "./RouteStops.scss"
 
 interface IRouteStops {
     inMove: boolean

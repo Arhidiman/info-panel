@@ -1,5 +1,5 @@
-import { TFlight } from "@/types/types"
 import { getFlightStatusClass } from "@/lib/getFlightStatusClass"
+import { TFlight } from "@/types/types"
 
 interface TFlightTableRow {
     flight?: TFlight,

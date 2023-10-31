@@ -1,6 +1,6 @@
-import "./TransfersInfo.scss"
 import Transfers from "./transfers/Transfers"
 import { TTransfer } from "@/types/types"
+import "./TransfersInfo.scss"
 
 interface ITransfersInfo {
     transfers: TTransfer[],
