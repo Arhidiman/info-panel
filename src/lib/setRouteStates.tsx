@@ -1,13 +1,16 @@
 import { Dispatch, SetStateAction } from "react"
-import { TStop, TFlight } from "@/app/types/types"
+import { TStop, TFlight } from "@/types/types"
 
 export const setRouteStates = (
     message: any, setSpeed: Dispatch<SetStateAction<number>>, 
     setStops: Dispatch<SetStateAction<TStop[]>>, 
+    setRouteIcon: Dispatch<SetStateAction<string>>,
+    setRouteColor: Dispatch<SetStateAction<string>>,
+    setRouteFontColor: Dispatch<SetStateAction<string>>,
+
     setStopTimes: Function, 
     setNextStop: Dispatch<SetStateAction<number>>,
     setInMove: Dispatch<SetStateAction<boolean>>,
-    setRouteIcon: Dispatch<SetStateAction<string>>,
     setPlayImage: Dispatch<SetStateAction<string>>,
     setPlayImageLabel: Dispatch<SetStateAction<string>>,
     setVideo: Dispatch<SetStateAction<string>>,
@@ -26,10 +29,14 @@ export const setRouteStates = (
                 setSpeed(JSON.parse(message.data).speed)  
             } break
             case "ROUTE": {
-                const stops = (JSON.parse(message.data).stops)
-                const routeIcon = (JSON.parse(message.data).icon)
+                const stops = JSON.parse(message.data).stops
+                const routeIcon = JSON.parse(message.data).icon
+                const routeColor = JSON.parse(message.data).color
+                const routeFontColor = JSON.parse(message.data).fontColor
                 setStops(stops) 
                 setRouteIcon(routeIcon)
+                setRouteColor(routeColor)
+                setRouteFontColor(routeFontColor)
             } break
             case "STOP_TIMES": {
                 const stopsTimes = JSON.parse(message.data).stops

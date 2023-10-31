@@ -4,13 +4,21 @@ import HeaderInMoveContent from "./header-in-move-content/HeaderInMoveContent"
 
 function AppLeftHeader() {
 
-    const { currentStop, inMove} = useAppContext()
+    const { currentStop, inMove, routeColor, routeFontColor} = useAppContext()
+
+    console.log(routeColor, routeFontColor)
+
+    const headerStyle = {
+        background: routeColor, 
+        color: routeFontColor
+    }
+    
+    console.log(currentStop)
     
     return (
-        currentStop && 
-        <header className={`${!inMove ? "app-page-header stop" : "app-page-header"}`}>
+        <header className={`${!inMove ? "app-page-header stop" : "app-page-header"}`} style={!inMove ? headerStyle : {}}>
             {
-              inMove ? <HeaderInMoveContent/> : <HeaderWhenStoppingContent/>
+              inMove && currentStop ?  <HeaderInMoveContent/> : <HeaderWhenStoppingContent/>
             }
         </header>
     )

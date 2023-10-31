@@ -6,7 +6,7 @@ import "./RouteStops.scss"
 
 function RouteStops() {
 
-    const { stops, stopsTimes, nextStop, inMove } = useAppContext()
+    const { stops, stopsTimes, nextStop, inMove, routeColor } = useAppContext()
 
     let count = 0
     const [displayedStops, setDisplayedStops] = useState(4)
@@ -28,6 +28,7 @@ function RouteStops() {
                     nameRus={stop.nameRus} 
                     nameEng={stop.nameEng} 
                     timeLeft={stopsTimes[count-1].time}
+                    circleColor = { count === 1 && routeColor}
                 />
             }
         } catch(error) {

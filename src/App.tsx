@@ -12,13 +12,16 @@ function App() {
 
   const { lastMessage, sendMessage } = useWebSocket(wsUrl); 
   const [ stops, setStops ] = useState([])
+  const [ routeIcon, setRouteIcon ] = useState("")
+  const [ routeColor, setRouteColor ] = useState("")
+  const [ routeFontColor, setRouteFontColor ] = useState("")
+
   const [ nextStop, setNextStop ] = useState(5)
   const [ transfers, setTransfers] = useState([])
   const [ speed, setSpeed ] = useState(0)
   const [ stopsTimes, setStopTimes ] = useState([])
   const [ currentStop, setCurrentStop ] = useState(null)
   const [ inMove, setInMove ] = useState(true)
-  const [ routeIcon, setRouteIcon ] = useState("")
   const [ playImage, setPlayImage ] = useState("")
   const [ video, setVideo ] = useState("")
   const [ airportContent, setAirportContent ] = useState([])
@@ -37,10 +40,12 @@ function App() {
       lastMessage, 
       setSpeed, 
       setStops, 
+      setRouteIcon, 
+      setRouteColor, 
+      setRouteFontColor,
       setStopTimes, 
       setNextStop, 
       setInMove, 
-      setRouteIcon, 
       setPlayImage, 
       setPlayImageLabel,
       setVideoLabel,
@@ -80,13 +85,15 @@ function App() {
           {
             lastMessage, 
             stops, 
+            routeIcon, 
+            routeColor, 
+            routeFontColor,
             nextStop, 
             transfers, 
             speed, 
             stopsTimes, 
             currentStop, 
             inMove, 
-            routeIcon, 
             playImage, 
             playImageLabel,
             video,
