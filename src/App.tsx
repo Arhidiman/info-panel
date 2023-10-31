@@ -1,11 +1,11 @@
 import '@/App.scss'
-import AppLeft from '@/widgets/app-left/ui/AppLeft'
-import AppRight from '@/widgets/app-right/ui/AppRight'
+import AppLeft from '@/components/app-left/AppLeft'
+import AppRight from '@/components/app-right/AppRight'
 import { useState, useEffect } from "react"
 import { createContext } from "react"
 import useWebSocket from 'react-use-websocket';
-import { setRouteStates } from '@/shared/lib/setRouteStates'
-import { wsUrl } from '@/shared/constants/urls'
+import { setRouteStates } from '@/lib/setRouteStates'
+import { wsUrl } from '@/constants/urls'
 export const AppContext = createContext(null)
 
 function App() {
