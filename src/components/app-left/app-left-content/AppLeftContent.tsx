@@ -26,9 +26,9 @@ function AppLeftContent() {
                 {
                   !routeContent && transfers.length > 0 && !inMove
                   ? 
-                  <TransfersInfo transfers={transfers}/>
+                  <TransfersInfo/>
                   :
-                  <RouteStops inMove={inMove}/>
+                  <RouteStops/>
                 }
             </CSSTransition>
         </SwitchTransition>

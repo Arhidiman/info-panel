@@ -1,12 +1,10 @@
+import useAppContext from "@/hooks/useAppContext"
 import Transfers from "./transfers/Transfers"
-import { TTransfer } from "@/types/types"
 import "./TransfersInfo.scss"
 
-interface ITransfersInfo {
-    transfers: TTransfer[],
-}
+function TransfersInfo() {
 
-function TransfersInfo({ transfers }: ITransfersInfo) {
+    const { transfers } = useAppContext()
 
     const [busTransfers, trolleysTransfers, metroTransfers] = transfers
 

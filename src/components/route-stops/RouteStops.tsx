@@ -4,11 +4,9 @@ import RouteItem from "./route-item/RouteItem"
 import { TStop } from "@/types/types"
 import "./RouteStops.scss"
 
-interface IRouteStops {
-    inMove: boolean
-}
+function RouteStops() {
 
-function RouteStops({ inMove }: IRouteStops) {
+    const { stops, stopsTimes, nextStop, inMove } = useAppContext()
 
     let count = 0
     const [displayedStops, setDisplayedStops] = useState(4)
@@ -16,8 +14,6 @@ function RouteStops({ inMove }: IRouteStops) {
     useEffect(() => {
         inMove ? setDisplayedStops(4) : setDisplayedStops(3) 
     }, [inMove])
-
-    const { stops, stopsTimes, nextStop } = useAppContext()
 
     const stop = (stop: TStop, i: number) => {
         try {
@@ -38,6 +34,7 @@ function RouteStops({ inMove }: IRouteStops) {
             console.log(error, count, nextStop, stop, displayedStops)
         }
     }
+    
     return (
         <div className="route-stops">
                 {

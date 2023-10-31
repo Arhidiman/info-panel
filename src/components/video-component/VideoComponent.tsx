@@ -32,7 +32,7 @@ function VideoComponent({src, className, type}: IVideoComponent) {
   return (
       type === "stream"  
       ? 
-      <iframe className={className} src={src} title="YouTube video player" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+      <iframe className={className} src={src} title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
       :
       <video className={className} muted autoPlay={true} onPlay={setStartVideo} onError={setVideoError}>
         <source src={src} type="video/mp4"/>

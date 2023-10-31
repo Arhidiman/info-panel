@@ -1,6 +1,6 @@
 import { flightDirection } from "@/types/types"
-import arrivalImg from "@/app/images/icons/arrival.png"
-import departureImg from "@/app/images/icons/departure.png"
+import arrivalImg from "@/images/icons/arrival.png"
+import departureImg from "@/images/icons/departure.png"
 
 interface TFlightsInfo {
     type?: flightDirection
