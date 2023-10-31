@@ -1,11 +1,12 @@
-import '@/App.scss'
-import AppLeft from '@/components/app-left/AppLeft'
-import AppRight from '@/components/app-right/AppRight'
 import { useState, useEffect } from "react"
 import { createContext } from "react"
 import useWebSocket from 'react-use-websocket';
 import { setRouteStates } from '@/lib/setRouteStates'
+import AppLeft from '@/components/app-left/AppLeft'
+import AppRight from '@/components/app-right/AppRight'
 import { wsUrl } from '@/constants/urls'
+import '@/App.scss'
+
 export const AppContext = createContext(null)
 
 function App() {
@@ -15,10 +16,14 @@ function App() {
   const [ routeIcon, setRouteIcon ] = useState("")
   const [ routeColor, setRouteColor ] = useState("")
   const [ routeFontColor, setRouteFontColor ] = useState("")
+  const [ firstStop, setFirstStop ] = useState("")
+  const [ lastStop, setLastStop ] = useState("")
+
 
   const [ nextStop, setNextStop ] = useState(5)
   const [ transfers, setTransfers] = useState([])
   const [ speed, setSpeed ] = useState(0)
+  const [ temperature, setTemperature ] = useState(0)
   const [ stopsTimes, setStopTimes ] = useState([])
   const [ currentStop, setCurrentStop ] = useState(null)
   const [ inMove, setInMove ] = useState(true)
@@ -39,10 +44,14 @@ function App() {
     setRouteStates(
       lastMessage, 
       setSpeed, 
+      setTemperature,
       setStops, 
       setRouteIcon, 
       setRouteColor, 
       setRouteFontColor,
+      setFirstStop, 
+      setLastStop,
+
       setStopTimes, 
       setNextStop, 
       setInMove, 
@@ -61,7 +70,7 @@ function App() {
   useEffect(() => {
     if(stops.length > 0 && stops[nextStop]) {
       setTransfers(stops[nextStop].transfers) 
-      setCurrentStop(stops[nextStop - 1])
+      setCurrentStop(stops[nextStop])
     }
   }, [nextStop, stops])
 
@@ -84,13 +93,18 @@ function App() {
       <AppContext.Provider value={
           {
             lastMessage, 
+
             stops, 
             routeIcon, 
             routeColor, 
             routeFontColor,
+            firstStop, 
+            lastStop,
+
             nextStop, 
             transfers, 
             speed, 
+            temperature,
             stopsTimes, 
             currentStop, 
             inMove, 

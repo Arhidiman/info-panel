@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import useAppContext from "@/hooks/useAppContext"
 import RouteStops from "@/components/route-stops/RouteStops"
@@ -7,24 +6,14 @@ import InfoPlate from "@/components/info-plate/InfoPlate"
 
 function AppLeftContent() {
 
-    const [ routeContent, setRouteContent ] = useState(false)
-    const [ interval, setContentInterval ] = useState(null)
-    const { transfers, inMove} = useAppContext()
-    
-    useEffect(() => {
-      const interval = setTimeout(() => {
-        setRouteContent(!routeContent)
-      }, 3000)
-      setContentInterval(interval)
-      return () => clearInterval(interval)
-    }, [routeContent])
+    const { transfers, inMove } = useAppContext()
 
     return (
     <div className="app-page-left-content">
         <SwitchTransition>
-            <CSSTransition key={inMove ? "in-move" : 'stop'} timeout={1500} classNames="fade" mountOnEnter unmountOnExit>
+            <CSSTransition key={inMove ? "in-move" : 'stop'} timeout={1000} classNames="fade" mountOnEnter unmountOnExit>
                 {
-                  !routeContent && transfers.length > 0 && !inMove
+                  transfers.length > 0 && !inMove
                   ? 
                   <TransfersInfo/>
                   :

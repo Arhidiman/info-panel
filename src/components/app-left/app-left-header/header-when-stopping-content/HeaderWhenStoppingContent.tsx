@@ -5,9 +5,10 @@ function HeaderInMoveContent() {
     const { currentStop } = useAppContext()
 
     return (
+        currentStop && 
         <>
-            <div className="app-page__stop-name-ru">{currentStop && currentStop.nameRus}</div>
-            <div className="app-page__stop-name-eng">{currentStop && currentStop.nameEng}</div>
+            <div className="app-page__stop-name-ru">{currentStop.nameRus}</div>
+            <div className="app-page__stop-name-eng">{currentStop.nameEng}</div>
         </>
      )
 }

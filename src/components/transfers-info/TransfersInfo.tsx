@@ -1,20 +1,19 @@
 import useAppContext from "@/hooks/useAppContext"
 import Transfers from "./transfers/Transfers"
+import { TTransfer } from "@/types/types"
 import "./TransfersInfo.scss"
 
 function TransfersInfo() {
 
     const { transfers } = useAppContext()
 
-    const [busTransfers, trolleysTransfers, metroTransfers] = transfers
+    const transferType = (transferType: TTransfer) => <Transfers icons={transferType.icons}/>
 
     return (
            
         <div className={`transfers-scrollable`}>
             <div className="transfers-wrapper">
-                {busTransfers && <Transfers icons={busTransfers.icons}/>}
-                {trolleysTransfers && <Transfers icons={trolleysTransfers.icons}/>}
-                {metroTransfers && <Transfers icons={metroTransfers.icons}/>}
+                {transfers.map(transferType)}
             </div>
         </div>
                  

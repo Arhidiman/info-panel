@@ -2,11 +2,16 @@ import { Dispatch, SetStateAction } from "react"
 import { TStop, TFlight } from "@/types/types"
 
 export const setRouteStates = (
-    message: any, setSpeed: Dispatch<SetStateAction<number>>, 
+    message: any, 
+    
+    setSpeed: Dispatch<SetStateAction<number>>, 
+    setTemperature:  Dispatch<SetStateAction<number>>, 
     setStops: Dispatch<SetStateAction<TStop[]>>, 
     setRouteIcon: Dispatch<SetStateAction<string>>,
     setRouteColor: Dispatch<SetStateAction<string>>,
     setRouteFontColor: Dispatch<SetStateAction<string>>,
+    setFirstStop: Dispatch<SetStateAction<string>>,
+    setLastStop: Dispatch<SetStateAction<string>>,
 
     setStopTimes: Function, 
     setNextStop: Dispatch<SetStateAction<number>>,
@@ -25,18 +30,27 @@ export const setRouteStates = (
     if(message) {
         const type = JSON.parse(message.data).type
         switch(type) {
-            case "SPEED": {
-                setSpeed(JSON.parse(message.data).speed)  
-            } break
             case "ROUTE": {
                 const stops = JSON.parse(message.data).stops
                 const routeIcon = JSON.parse(message.data).icon
                 const routeColor = JSON.parse(message.data).color
                 const routeFontColor = JSON.parse(message.data).fontColor
+
+                const firstStop = stops[0].nameRus
+                const lastStop =  stops[stops.length - 1].nameRus
+
                 setStops(stops) 
                 setRouteIcon(routeIcon)
                 setRouteColor(routeColor)
                 setRouteFontColor(routeFontColor)
+                setFirstStop(firstStop)
+                setLastStop(lastStop)
+            } break
+            case "SPEED": {
+                setSpeed(JSON.parse(message.data).speed)  
+            } break
+            case "TEMPERATURE": {
+                setTemperature(JSON.parse(message.data).temperature)  
             } break
             case "STOP_TIMES": {
                 const stopsTimes = JSON.parse(message.data).stops
